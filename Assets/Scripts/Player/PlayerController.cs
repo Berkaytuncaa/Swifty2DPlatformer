@@ -60,13 +60,15 @@ public class PlayerController : MonoBehaviour
     private void UpdateAnimations()
     {
         _anim.SetBool("_isRunning", _isRunning);
+        _anim.SetBool("isGrounded", IsGrounded());
+        _anim.SetFloat("yVelocity", _rb.velocity.y);
     }
 
     private void CheckInput()
     {
         _movementInputDirection = Input.GetAxisRaw("Horizontal");
 
-        if (Input.GetButtonDown("Jump") && İsGrounded())
+        if (Input.GetButtonDown("Jump") && IsGrounded())
         {
             Jump();
         }
@@ -88,7 +90,7 @@ public class PlayerController : MonoBehaviour
         _rb.velocity = new Vector2(_rb.velocity.x, jumpForce);
     }
 
-    private bool İsGrounded()
+    private bool IsGrounded()
     {
         float _extraHeight = 0.3f;
         RaycastHit2D raycastHit = Physics2D.BoxCast(
