@@ -5,12 +5,14 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     private Rigidbody2D _rb;
+    private BoxCollider2D _collider;
 
     private Animator _anim;
     private bool _isRunning;
 
     private float _movementInputDirection;
     private bool _isFacingRight = true;
+    [SerializeField] private LayerMask platformLayer;
 
     [SerializeField] private float movementSpeed;
     [SerializeField] private float jumpForce;
@@ -19,6 +21,7 @@ public class PlayerController : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody2D>();
         _anim = GetComponent<Animator>();
+        _collider = GetComponent<BoxCollider2D>();
     }
 
     private void Update()
@@ -63,7 +66,7 @@ public class PlayerController : MonoBehaviour
     {
         _movementInputDirection = Input.GetAxisRaw("Horizontal");
 
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump") && İsGrounded())
         {
             Jump();
         }
@@ -83,5 +86,14 @@ public class PlayerController : MonoBehaviour
     private void Jump()
     {
         _rb.velocity = new Vector2(_rb.velocity.x, jumpForce);
+    }
+
+    private bool İsGrounded()
+    {
+        float _extraHeight = 0.3f;
+        RaycastHit2D raycastHit = Physics2D.BoxCast(
+            _collider.bounds.center, _collider.bounds.size, 0 ,Vector2.down, _extraHeight, platformLayer);
+
+        return raycastHit.collider != null;
     }
 }
