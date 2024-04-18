@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
 
     private Animator _anim;
     private bool _isRunning;
+    private bool _isWallSliding;
 
     private float _movementInputDirection;
     private bool _isFacingRight = true;
@@ -16,6 +17,8 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private float movementSpeed;
     [SerializeField] private float jumpForce;
+    [SerializeField] private float wallSlidingSpeed;
+    private float _variableJumpHeight = 0.5f;
 
     private void Start()
     {
@@ -29,6 +32,7 @@ public class PlayerController : MonoBehaviour
         CheckInput();
         CheckMovementDirection();
         UpdateAnimations();
+        CheckIfWallSliding();
     }
 
     private void FixedUpdate()
@@ -62,6 +66,7 @@ public class PlayerController : MonoBehaviour
         _anim.SetBool("_isRunning", _isRunning);
         _anim.SetBool("isGrounded", IsGrounded());
         _anim.SetFloat("yVelocity", _rb.velocity.y);
+        _anim.SetBool("isWallSliding", _isWallSliding);
     }
 
     private void CheckInput()
@@ -72,11 +77,24 @@ public class PlayerController : MonoBehaviour
         {
             Jump();
         }
+
+        if (Input.GetButtonUp("Jump"))
+        {
+            _rb.velocity = new Vector2(_rb.velocity.x, _rb.velocity.y * _variableJumpHeight);
+        }
     }
 
     private void ApplyMovement()
     {
         _rb.velocity = new Vector2(movementSpeed * _movementInputDirection, _rb.velocity.y);
+
+        if (_isWallSliding)
+        {
+            if (_rb.velocity.y < -wallSlidingSpeed)
+            {
+                _rb.velocity = new Vector2(_rb.velocity.x, -wallSlidingSpeed);
+            }
+        }
     }
 
     private void Flip()
@@ -108,5 +126,17 @@ public class PlayerController : MonoBehaviour
             _collider.bounds.center, Vector2.left, _collider.bounds.extents.x + extraLenght, platformLayer);
 
         return rightRayCastHit.collider != null || leftRayCastHit.collider != null;
+    }
+
+    private void CheckIfWallSliding()
+    {
+        if (IsTouchingWall() && !IsGrounded() && _rb.velocity.y < 0)
+        {
+            _isWallSliding = true;
+        }
+        else
+        {
+            _isWallSliding = false;
+        }
     }
 }
