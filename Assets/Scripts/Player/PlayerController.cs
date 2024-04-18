@@ -92,10 +92,21 @@ public class PlayerController : MonoBehaviour
 
     private bool IsGrounded()
     {
-        float _extraHeight = 0.3f;
+        float extraHeight = 0.3f;
         RaycastHit2D raycastHit = Physics2D.BoxCast(
-            _collider.bounds.center, _collider.bounds.size, 0 ,Vector2.down, _extraHeight, platformLayer);
+            _collider.bounds.center, _collider.bounds.size, 0 ,Vector2.down, extraHeight, platformLayer);
 
         return raycastHit.collider != null;
+    }
+
+    private bool IsTouchingWall()
+    {
+        float extraLenght = 0.1f;
+        RaycastHit2D rightRayCastHit = Physics2D.Raycast(
+            _collider.bounds.center, Vector2.right, _collider.bounds.extents.x + extraLenght, platformLayer);
+        RaycastHit2D leftRayCastHit = Physics2D.Raycast(
+            _collider.bounds.center, Vector2.left, _collider.bounds.extents.x + extraLenght, platformLayer);
+
+        return rightRayCastHit.collider != null || leftRayCastHit.collider != null;
     }
 }
