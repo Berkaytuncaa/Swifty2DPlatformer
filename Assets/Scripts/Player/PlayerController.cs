@@ -6,18 +6,20 @@ public class PlayerController : MonoBehaviour
 {
     private Rigidbody2D _rb;
     private BoxCollider2D _collider;
-
     private Animator _anim;
-    private bool _isRunning;
-    private bool _isWallSliding;
-
-    private float _movementInputDirection;
-    private bool _isFacingRight = true;
     [SerializeField] private LayerMask platformLayer;
 
+    private bool _isFacingRight = true;
+    private bool _isRunning;
+    private bool _isWallSliding;
+    private bool _canWallJump;
+    private bool _isWallJumping;
+
+    private float _movementInputDirection;
     [SerializeField] private float movementSpeed;
     [SerializeField] private float jumpForce;
     [SerializeField] private float wallSlidingSpeed;
+    [SerializeField] private float wallJumpForce;
     private float _variableJumpHeight = 0.5f;
 
     private void Start()
@@ -77,6 +79,10 @@ public class PlayerController : MonoBehaviour
         {
             Jump();
         }
+        else if (Input.GetButtonDown("Jump") && _canWallJump && !_isWallJumping)
+        {
+            WallJump();
+        }
 
         if (Input.GetButtonUp("Jump"))
         {
@@ -108,6 +114,22 @@ public class PlayerController : MonoBehaviour
         _rb.velocity = new Vector2(_rb.velocity.x, jumpForce);
     }
 
+    private void WallJump()
+    {
+        _isWallJumping = true;
+
+        int wallDirection = IsTouchingWall() ? (int)Mathf.Sign(_rb.velocity.x) : (_isFacingRight ? -1 : 1);
+
+        _rb.velocity = new Vector2(wallDirection * wallJumpForce, jumpForce);
+
+        Invoke("ResetWallJump", 0.2f);
+    }
+
+    private void ResetWallJump()
+    {
+        _isWallJumping = false;
+    }
+
     private bool IsGrounded()
     {
         float extraHeight = 0.3f;
@@ -133,10 +155,12 @@ public class PlayerController : MonoBehaviour
         if (IsTouchingWall() && !IsGrounded() && _rb.velocity.y < 0)
         {
             _isWallSliding = true;
+            _canWallJump = true;
         }
         else
         {
             _isWallSliding = false;
+            _canWallJump = false;
         }
     }
 }
