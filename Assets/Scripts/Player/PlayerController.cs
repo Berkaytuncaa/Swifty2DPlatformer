@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+// TODO: Player can do vertical jumps on the same wall, we do not want that. It only should be able to jump to the opposite wall.
 public class PlayerController : MonoBehaviour
 {
     private Rigidbody2D _rb;
