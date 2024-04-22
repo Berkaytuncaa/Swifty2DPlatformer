@@ -324,6 +324,7 @@ MonoBehaviour:
   wallSlidingSpeed: 2
   wallJumpForce: 30
   jumpTimerSet: 0.15
+  coyoteTime: 0.2
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0

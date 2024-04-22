@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float wallSlidingSpeed;
     [SerializeField] private float wallJumpForce;
     [SerializeField] private float jumpTimerSet;
+    [SerializeField] private float coyoteTime;
 
     private bool _isFacingRight = true;
     private bool _isRunning;
@@ -26,6 +27,7 @@ public class PlayerController : MonoBehaviour
     private float airDrapMultiplier = 0.95f;
     private float _variableJumpHeight = 0.5f;
     private float _jumpTimer;
+    private float _coyoteTimeCounter;
 
     private int _facingDirection = 1;
 
@@ -76,9 +78,18 @@ public class PlayerController : MonoBehaviour
     {
         _movementInputDirection = Input.GetAxisRaw("Horizontal");
 
+        if (IsGrounded())
+        {
+            _coyoteTimeCounter = coyoteTime;
+        }
+        else
+        {
+            _coyoteTimeCounter -= Time.deltaTime;
+        }
+
         if (Input.GetButtonDown("Jump"))
         {
-            if (IsGrounded() && !_isWallSliding)
+            if (_coyoteTimeCounter > 0f && !_isWallSliding)
             {
                 Jump();
             }
@@ -96,6 +107,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonUp("Jump"))
         {
             _rb.velocity = new Vector2(_rb.velocity.x, _rb.velocity.y * _variableJumpHeight);
+            _coyoteTimeCounter = 0f;
         }
     }
 
