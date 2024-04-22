@@ -322,8 +322,7 @@ MonoBehaviour:
   movementSpeed: 7
   jumpForce: 16
   wallSlidingSpeed: 2
-  wallJumpForce: 20
-  airDrapMultiplier: 0
+  wallJumpForce: 30
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0

@@ -70,15 +70,18 @@ public class PlayerController : MonoBehaviour
     {
         _movementInputDirection = Input.GetAxisRaw("Horizontal");
 
-        if (Input.GetButtonDown("Jump") && IsGrounded())
+        if (Input.GetButtonDown("Jump"))
         {
-            Jump();
+            if (IsGrounded())
+            {
+                Jump();
+            }
+            else if(_canWallJump && !_isWallJumping && !IsGrounded())
+            {
+                WallJump();
+            }
         }
-        else if (Input.GetButtonDown("Jump") && _canWallJump && !_isWallJumping)
-        {
-            WallJump();
-        }
-
+        
         if (Input.GetButtonUp("Jump"))
         {
             _rb.velocity = new Vector2(_rb.velocity.x, _rb.velocity.y * _variableJumpHeight);
