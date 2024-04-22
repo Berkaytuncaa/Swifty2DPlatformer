@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 // TODO: Player can do vertical jumps on the same wall, we do not want that. It only should be able to jump to the opposite wall.
+// TODO: Player can get into the platform tile. -probably cuz of falling speed-
 public class PlayerController : MonoBehaviour
 {
     private Rigidbody2D _rb;
@@ -20,6 +21,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float jumpForce;
     [SerializeField] private float wallSlidingSpeed;
     [SerializeField] private float wallJumpForce;
+    [SerializeField] private float airDrapMultiplier;
     private float _variableJumpHeight = 0.5f;
 
     private void Start()
@@ -92,7 +94,14 @@ public class PlayerController : MonoBehaviour
 
     private void ApplyMovement()
     {
-        _rb.velocity = new Vector2(movementSpeed * _movementInputDirection, _rb.velocity.y);
+        if (!IsGrounded() && _isWallSliding && _movementInputDirection == 0)
+        {
+            _rb.velocity = new Vector2(_rb.velocity.x * airDrapMultiplier, _rb.velocity.y);
+        }
+        else
+        {
+            _rb.velocity = new Vector2(movementSpeed * _movementInputDirection, _rb.velocity.y);
+        }
 
         if (_isWallSliding)
         {
