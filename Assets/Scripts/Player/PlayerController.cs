@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-// TODO: Player can do vertical jumps on the same wall, we do not want that. It only should be able to jump to the opposite wall.
 // TODO: Player can get into the platform tile. -probably cuz of falling speed-
 public class PlayerController : MonoBehaviour
 {
@@ -72,7 +71,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetButtonDown("Jump"))
         {
-            if (IsGrounded())
+            if (IsGrounded() && !_isWallSliding)
             {
                 Jump();
             }
