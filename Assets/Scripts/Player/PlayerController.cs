@@ -7,21 +7,26 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D _rb;
     private BoxCollider2D _collider;
     private Animator _anim;
+
     [SerializeField] private LayerMask platformLayer;
+    [SerializeField] private float movementSpeed;
+    [SerializeField] private float jumpForce;
+    [SerializeField] private float wallSlidingSpeed;
+    [SerializeField] private float wallJumpForce;
+    [SerializeField] private float jumpTimerSet;
 
     private bool _isFacingRight = true;
     private bool _isRunning;
     private bool _isWallSliding;
     private bool _canWallJump;
     private bool _isWallJumping;
+    private bool _isAttemptingToJump;
 
     private float _movementInputDirection;
-    [SerializeField] private float movementSpeed;
-    [SerializeField] private float jumpForce;
-    [SerializeField] private float wallSlidingSpeed;
-    [SerializeField] private float wallJumpForce;
     private float airDrapMultiplier = 0.95f;
     private float _variableJumpHeight = 0.5f;
+    private float _jumpTimer;
+    private float _facingDirection = 1;
 
     private void Start()
     {
@@ -36,6 +41,7 @@ public class PlayerController : MonoBehaviour
         CheckMovementDirection();
         UpdateAnimations();
         CheckIfWallSliding();
+        CheckJump();
     }
 
     private void FixedUpdate()
@@ -79,6 +85,11 @@ public class PlayerController : MonoBehaviour
             {
                 WallJump();
             }
+            else
+            {
+                _jumpTimer = jumpTimerSet;
+                _isAttemptingToJump = true;
+            }
         }
         
         if (Input.GetButtonUp("Jump"))
@@ -106,13 +117,37 @@ public class PlayerController : MonoBehaviour
 
     private void Flip()
     {
+        _facingDirection *= -1;
         _isFacingRight = !_isFacingRight;
         transform.Rotate(0.0f, 180.0f, 0.0f);
+    }
+
+    private void CheckJump()
+    {
+        if (_jumpTimer > 0)
+        {
+            if (_canWallJump && !_isWallJumping && !IsGrounded())
+            {
+                WallJump();
+            }
+            else if (IsGrounded() && !_isWallSliding)
+            {
+                Jump();
+            }
+        }
+
+        if (_isAttemptingToJump)
+        {
+            jumpTimerSet -= Time.deltaTime;
+        }
     }
 
     private void Jump()
     {
         _rb.velocity = new Vector2(_rb.velocity.x, jumpForce);
+
+        _jumpTimer = 0;
+        _isAttemptingToJump = false;
     }
 
     private void WallJump()
@@ -124,6 +159,9 @@ public class PlayerController : MonoBehaviour
         _rb.velocity = new Vector2(wallDirection * wallJumpForce, jumpForce);
 
         Invoke("ResetWallJump", 0.2f);
+
+        _jumpTimer = 0;
+        _isAttemptingToJump = false;
     }
 
     private void ResetWallJump()
