@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float jumpForce;
     [SerializeField] private float wallSlidingSpeed;
     [SerializeField] private float wallJumpForce;
-    [SerializeField] private float airDrapMultiplier;
+    private float airDrapMultiplier = 0.95f;
     private float _variableJumpHeight = 0.5f;
 
     private void Start()
@@ -55,15 +55,8 @@ public class PlayerController : MonoBehaviour
             Flip();
         }
 
-        if (_rb.velocity.x != 0)
-        {
-            _isRunning = true;
-        }
-        else
-        {
-            _isRunning = false;
-        }
-    }
+        _isRunning = Mathf.Abs(_rb.velocity.x) > 0;
+}
 
     private void UpdateAnimations()
     {
@@ -103,12 +96,9 @@ public class PlayerController : MonoBehaviour
             _rb.velocity = new Vector2(movementSpeed * _movementInputDirection, _rb.velocity.y);
         }
 
-        if (_isWallSliding)
+        if (_isWallSliding && _rb.velocity.y < -wallSlidingSpeed)
         {
-            if (_rb.velocity.y < -wallSlidingSpeed)
-            {
-                _rb.velocity = new Vector2(_rb.velocity.x, -wallSlidingSpeed);
-            }
+            _rb.velocity = new Vector2(_rb.velocity.x, -wallSlidingSpeed);
         }
     }
 
@@ -161,7 +151,7 @@ public class PlayerController : MonoBehaviour
 
     private void CheckIfWallSliding()
     {
-        if (IsTouchingWall() && !IsGrounded() && _rb.velocity.y < 0)
+        if (IsTouchingWall() && !IsGrounded())
         {
             _isWallSliding = true;
             _canWallJump = true;
