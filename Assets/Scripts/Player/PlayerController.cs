@@ -26,7 +26,8 @@ public class PlayerController : MonoBehaviour
     private float airDrapMultiplier = 0.95f;
     private float _variableJumpHeight = 0.5f;
     private float _jumpTimer;
-    private float _facingDirection = 1;
+
+    private int _facingDirection = 1;
 
     private void Start()
     {
