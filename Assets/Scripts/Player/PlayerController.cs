@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -214,5 +215,18 @@ public class PlayerController : MonoBehaviour
             _isWallSliding = false;
             _canWallJump = false;
         }
+    }
+
+    private void GetHit()
+    {
+        throw new NotImplementedException();
+        // TODO: play hit animation
+        //       call Death()
+    }
+
+    private void Death()
+    {
+        throw new NotImplementedException();
+        // TODO: load current scene
     }
 }
