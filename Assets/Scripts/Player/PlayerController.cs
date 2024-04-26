@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float wallJumpForce;
     [SerializeField] private float jumpTimerSet;
     [SerializeField] private float coyoteTime;
+    [SerializeField] private ParticleSystem movementParticle;
 
     private bool _isFacingRight = true;
     private bool _isRunning;
@@ -65,7 +66,7 @@ public class PlayerController : MonoBehaviour
         }
 
         _isRunning = Mathf.Abs(_rb.velocity.x) > 0;
-}
+    }
 
     private void UpdateAnimations()
     {
@@ -126,6 +127,8 @@ public class PlayerController : MonoBehaviour
         if (_isWallSliding && _rb.velocity.y < -wallSlidingSpeed)
         {
             _rb.velocity = new Vector2(_rb.velocity.x, -wallSlidingSpeed);
+
+            movementParticle.Play();
         }
     }
 
@@ -134,6 +137,8 @@ public class PlayerController : MonoBehaviour
         _facingDirection *= -1;
         _isFacingRight = !_isFacingRight;
         transform.Rotate(0.0f, 180.0f, 0.0f);
+
+        movementParticle.Play();
     }
 
     private void CheckJump()
@@ -162,6 +167,8 @@ public class PlayerController : MonoBehaviour
 
         _jumpTimer = 0;
         _isAttemptingToJump = false;
+
+        movementParticle.Play();
     }
 
     private void WallJump()
@@ -209,24 +216,13 @@ public class PlayerController : MonoBehaviour
         {
             _isWallSliding = true;
             _canWallJump = true;
+
+            movementParticle.Play();
         }
         else
         {
             _isWallSliding = false;
             _canWallJump = false;
         }
-    }
-
-    private void GetHit()
-    {
-        throw new NotImplementedException();
-        // TODO: play hit animation
-        //       call Death()
-    }
-
-    private void Death()
-    {
-        throw new NotImplementedException();
-        // TODO: load current scene
     }
 }
