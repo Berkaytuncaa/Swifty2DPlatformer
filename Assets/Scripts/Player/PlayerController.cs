@@ -18,7 +18,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float jumpTimerSet;
     [SerializeField] private float coyoteTime;
     [SerializeField] private ParticleSystem movementParticle;
-    [SerializeField] private Animation hitAnim;
 
     private bool _isFacingRight = true;
     private bool _isRunning;
