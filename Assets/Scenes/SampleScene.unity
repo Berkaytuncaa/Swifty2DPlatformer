@@ -8100,9 +8100,10 @@ GameObject:
   - component: {fileID: 1824290742}
   - component: {fileID: 1824290741}
   - component: {fileID: 1824290740}
+  - component: {fileID: 1824290743}
   m_Layer: 0
   m_Name: Saw
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8195,6 +8196,64 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!60 &1824290743
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1824290739}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.38, y: 0.38}
+    newSize: {x: 0.38, y: 0.38}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.16605785, y: 0.11923826}
+      - {x: 0.14100137, y: 0.15875165}
+      - {x: 0.10887514, y: 0.19}
+      - {x: -0.11, y: 0.19}
+      - {x: -0.16212611, y: 0.14662553}
+      - {x: -0.19, y: 0.12}
+      - {x: -0.18100137, y: -0.1210013}
+      - {x: -0.14437582, y: -0.16212617}
+      - {x: -0.1143757, y: -0.19}
+      - {x: 0.12, y: -0.19}
+      - {x: 0.15300386, y: -0.15325096}
+      - {x: 0.19, y: -0.12}
+      - {x: 0.18887514, y: 0.09875165}
+  m_UseDelaunayMesh: 0
 --- !u!1 &1949294755
 GameObject:
   m_ObjectHideFlags: 0
@@ -8205,9 +8264,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1949294757}
   - component: {fileID: 1949294756}
+  - component: {fileID: 1949294758}
   m_Layer: 0
   m_Name: Spike
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8279,6 +8339,60 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!60 &1949294758
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1949294755}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.34241247, y: -0.050502777}
+      - {x: -0.3491106, y: -0.06272364}
+      - {x: -0.48670578, y: -0.30180073}
+      - {x: -0.5067277, y: -0.40209627}
+      - {x: -0.5, y: -0.5}
+      - {x: 0.45346928, y: -0.5}
+      - {x: 0.4481473, y: -0.3910122}
+      - {x: 0.40029097, y: -0.27059054}
+      - {x: 0.27593994, y: -0.050503016}
+  m_UseDelaunayMesh: 0
 --- !u!1 &2125962126
 GameObject:
   m_ObjectHideFlags: 0

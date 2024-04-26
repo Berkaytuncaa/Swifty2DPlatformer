@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D _rb;
     private BoxCollider2D _collider;
     private Animator _anim;
+    private Vector2 _startPos;
 
     [SerializeField] private LayerMask platformLayer;
     [SerializeField] private float movementSpeed;
@@ -17,6 +18,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float jumpTimerSet;
     [SerializeField] private float coyoteTime;
     [SerializeField] private ParticleSystem movementParticle;
+    [SerializeField] private Animation hitAnim;
 
     private bool _isFacingRight = true;
     private bool _isRunning;
@@ -38,6 +40,8 @@ public class PlayerController : MonoBehaviour
         _rb = GetComponent<Rigidbody2D>();
         _anim = GetComponent<Animator>();
         _collider = GetComponent<BoxCollider2D>();
+
+        _startPos = transform.position;
     }
 
     private void Update()
@@ -225,4 +229,30 @@ public class PlayerController : MonoBehaviour
             _canWallJump = false;
         }
     }
+
+    private void Die()
+    {
+        // TODO: Anims will play here
+        StartCoroutine(Respawn(0.5f));
+    }
+
+    private IEnumerator Respawn(float duration)
+    {
+        _rb.velocity = new Vector2(0, 0);
+        _rb.simulated = false;
+        transform.localScale = new Vector3(0, 0, 0);
+        yield return new WaitForSeconds(duration);
+        transform.position = _startPos;
+        transform.localScale = new Vector3(1, 1, 1);
+        _rb.simulated = true;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Obstacle"))
+        {
+            Die();
+        }
+    }
+
 }
