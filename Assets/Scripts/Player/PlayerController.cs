@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float jumpTimerSet;
     [SerializeField] private float coyoteTime;
     [SerializeField] private ParticleSystem movementParticle;
+    [SerializeField] private ParticleSystem deathParticle;
 
     private bool _isFacingRight = true;
     private bool _isRunning;
@@ -251,6 +252,7 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.CompareTag("Obstacle"))
         {
+            deathParticle.Play();
             Die();
         }
     }
