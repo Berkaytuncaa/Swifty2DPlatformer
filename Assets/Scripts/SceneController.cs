@@ -12,11 +12,23 @@ public class SceneController : MonoBehaviour
         StartCoroutine(LoadLevel());
     }
 
+    public void SetDeathScreen()
+    {
+        StartCoroutine(DeathScreen());
+    }
+
     IEnumerator LoadLevel()
     {
         transationAnim.SetTrigger("End");
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1);
         SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
+        transationAnim.SetTrigger("Start");
+    }
+
+    IEnumerator DeathScreen()
+    {
+        transationAnim.SetTrigger("End");
+        yield return new WaitForSeconds(1);
         transationAnim.SetTrigger("Start");
     }
 

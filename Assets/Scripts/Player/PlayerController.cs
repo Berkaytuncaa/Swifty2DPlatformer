@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     private BoxCollider2D _collider;
     private Animator _anim;
     private Vector2 _startPos;
+    private SceneController _sceneController;
 
     [SerializeField] private LayerMask platformLayer;
     [SerializeField] private float movementSpeed;
@@ -41,6 +42,7 @@ public class PlayerController : MonoBehaviour
         _rb = GetComponent<Rigidbody2D>();
         _anim = GetComponent<Animator>();
         _collider = GetComponent<BoxCollider2D>();
+        _sceneController = FindObjectOfType<SceneController>();
 
         _startPos = transform.position;
     }
@@ -233,8 +235,8 @@ public class PlayerController : MonoBehaviour
 
     private void Die()
     {
-        // TODO: Anims will play here
-        StartCoroutine(Respawn(0.5f));
+        _sceneController.SetDeathScreen();
+        StartCoroutine(Respawn(1));
     }
 
     private IEnumerator Respawn(float duration)
