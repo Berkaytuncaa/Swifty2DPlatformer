@@ -2,7 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+/// <summary>
+/// this script is being used by FinishPoint object
+/// although the name is scene controller it will also handle other implementations
+/// </summary>
 public class SceneController : MonoBehaviour
 {
     [SerializeField] private Animator transationAnim;
@@ -37,6 +40,12 @@ public class SceneController : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             NextLevel();
+
+            Rigidbody2D playerRigidbody = collision.GetComponent<Rigidbody2D>();
+            if (playerRigidbody != null)
+            {
+                playerRigidbody.constraints = RigidbodyConstraints2D.FreezePositionX;
+            }
         }
     }
 }
