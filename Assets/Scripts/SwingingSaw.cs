@@ -1,8 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class SwingingAxe : MonoBehaviour
+/// <summary>
+/// This script is being used for swing behaviour
+/// altough script is named as SwingingSaw, this script can be used for all swinging obstacles
+/// </summary>
+public class SwingingSaw : MonoBehaviour
 {
     [SerializeField] private float swingSpeed;
     [SerializeField] private float maxSwingAngle;
