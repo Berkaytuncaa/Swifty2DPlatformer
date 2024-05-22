@@ -23,7 +23,7 @@ public class SceneController : MonoBehaviour
     IEnumerator LoadLevel()
     {
         transationAnim.SetTrigger("End");
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(1.3f);
         SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
         transationAnim.SetTrigger("Start");
     }
@@ -31,7 +31,7 @@ public class SceneController : MonoBehaviour
     IEnumerator DeathScreen()
     {
         transationAnim.SetTrigger("End");
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(1.3f);
         transationAnim.SetTrigger("Start");
     }
 
