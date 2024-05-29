@@ -9447,6 +9447,10 @@ PrefabInstance:
       propertyPath: jumpTimerSet
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 957364511318857789, guid: 42a93d3141a134c84ace3b704bb13930, type: 3}
+      propertyPath: wallJumpForce
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 2111927591564505029, guid: 42a93d3141a134c84ace3b704bb13930, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
