@@ -17479,16 +17479,20 @@ PrefabInstance:
       value: FinishPoint
       objectReference: {fileID: 0}
     - target: {fileID: 3759675367557885013, guid: 89b5ce756f7ad4b5093b8500c9770e59, type: 3}
+      propertyPath: m_FlipX
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3759675367557885013, guid: 89b5ce756f7ad4b5093b8500c9770e59, type: 3}
       propertyPath: m_SortingOrder
       value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 4760331206568206268, guid: 89b5ce756f7ad4b5093b8500c9770e59, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -27
+      value: 57.52
       objectReference: {fileID: 0}
     - target: {fileID: 4760331206568206268, guid: 89b5ce756f7ad4b5093b8500c9770e59, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 22.1
+      value: 35.507
       objectReference: {fileID: 0}
     - target: {fileID: 4760331206568206268, guid: 89b5ce756f7ad4b5093b8500c9770e59, type: 3}
       propertyPath: m_LocalPosition.z
