@@ -2,8 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-// TODO: Player can get into the platform tile. -probably cuz of falling speed-
 // TODO: PLayer has an animation bug, due to _isRunning bool.(i believe)
+// TODO: Nobody can walljump in this entire world except me. Fix that
 public class PlayerController : MonoBehaviour
 {
     private Rigidbody2D _rb;
