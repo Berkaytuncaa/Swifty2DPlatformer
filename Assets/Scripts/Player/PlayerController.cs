@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-// TODO: Nobody can walljump in this entire world except me. Fix that
 public class PlayerController : MonoBehaviour
 {
     private Rigidbody2D _rb;
