@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-// TODO: PLayer has an animation bug, due to _isRunning bool.(i believe)
 // TODO: Nobody can walljump in this entire world except me. Fix that
 public class PlayerController : MonoBehaviour
 {
@@ -17,8 +16,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float jumpForce;
     [SerializeField] private float wallSlidingSpeed;
     [SerializeField] private float wallJumpForce;
-    [SerializeField] private float jumpTimerSet;
-    [SerializeField] private float coyoteTime;
     [SerializeField] private ParticleSystem movementParticle;
     [SerializeField] private ParticleSystem deathParticle;
 
@@ -32,7 +29,9 @@ public class PlayerController : MonoBehaviour
     private float _movementInputDirection;
     private float airDrapMultiplier = 0.95f;
     private float _variableJumpHeight = 0.5f;
+    private float _coyoteTime = 0.2f;
     private float _jumpTimer;
+    private float _jumpTimerSet = 0.15f;
     private float _coyoteTimeCounter;
 
     private int _facingDirection = 1;
@@ -72,7 +71,7 @@ public class PlayerController : MonoBehaviour
             Flip();
         }
 
-        _isRunning = Mathf.Abs(_rb.velocity.x) > 0;
+        _isRunning = Mathf.Abs(_movementInputDirection) > 0;
     }
 
     private void UpdateAnimations()
@@ -89,7 +88,7 @@ public class PlayerController : MonoBehaviour
 
         if (IsGrounded())
         {
-            _coyoteTimeCounter = coyoteTime;
+            _coyoteTimeCounter = _coyoteTime;
         }
         else
         {
@@ -108,7 +107,7 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
-                _jumpTimer = jumpTimerSet;
+                _jumpTimer = _jumpTimerSet;
                 _isAttemptingToJump = true;
             }
         }
@@ -164,7 +163,7 @@ public class PlayerController : MonoBehaviour
 
         if (_isAttemptingToJump)
         {
-            jumpTimerSet -= Time.deltaTime;
+            _jumpTimerSet -= Time.deltaTime;
         }
     }
 
