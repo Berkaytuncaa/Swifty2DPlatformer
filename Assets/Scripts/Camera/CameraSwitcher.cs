@@ -16,7 +16,7 @@ public class CameraSwitcher : MonoBehaviour
             vcam1.Priority = 0;
             vcam2.Priority = 10;
             blockObject.SetActive(true);
-            gameObject.SetActive(false);
+            //gameObject.SetActive(false);
         }
         else
         {
