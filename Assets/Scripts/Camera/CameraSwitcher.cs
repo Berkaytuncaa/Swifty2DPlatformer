@@ -30,6 +30,7 @@ public class CameraSwitcher : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             SwitchCamera();
+            gameObject.SetActive(false);
         }
     }
 }

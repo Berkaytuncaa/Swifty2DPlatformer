@@ -6,6 +6,8 @@ using UnityEngine;
 public class SetPlayerCamera : MonoBehaviour
 {
     [SerializeField] private CinemachineVirtualCamera vcam;
+    [SerializeField] private GameObject cameraSwitcher;
+    [SerializeField] private GameObject blockObject;
 
     void SetVcamPriority()
     {
@@ -17,6 +19,8 @@ public class SetPlayerCamera : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             SetVcamPriority();
+            cameraSwitcher.SetActive(true);
+            blockObject.SetActive(false);
         }
     }
 }
