@@ -231,7 +231,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void Die()
+    public void Die()
     {
         _sceneController.SetDeathScreen();
         StartCoroutine(Respawn(1));
