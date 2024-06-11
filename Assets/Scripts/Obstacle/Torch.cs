@@ -1,16 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class Torch : MonoBehaviour
 {
     private bool _isBurning = false;
     private Animator _anim;
+    [SerializeField] private GameObject torchLight;
     [SerializeField] private float burnDelay;
 
     private void Start()
     {
         _anim = GetComponent<Animator>();
+        torchLight.SetActive(false);
     }
 
     private void Update()
@@ -30,6 +33,7 @@ public class Torch : MonoBehaviour
 
             player.Die();
             _isBurning = false;
+            torchLight.SetActive(false);
         }
     }
 
@@ -38,5 +42,6 @@ public class Torch : MonoBehaviour
         // SFX will player here
         yield return new WaitForSeconds(burnDelay);
         _isBurning = true;
+        torchLight.SetActive(true);
     }
 }
