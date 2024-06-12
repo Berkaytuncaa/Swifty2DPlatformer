@@ -5,7 +5,7 @@ using UnityEngine.Rendering.Universal;
 
 public class Torch : MonoBehaviour
 {
-    private bool _isBurning = false;
+    public bool isBurning = false;
     private Animator _anim;
     [SerializeField] private GameObject torchLight;
     [SerializeField] private float burnDelay;
@@ -18,21 +18,26 @@ public class Torch : MonoBehaviour
 
     private void Update()
     {
-        _anim.SetBool("isBurning", _isBurning);
+        _anim.SetBool("isBurning", isBurning);
+
+        if (!isBurning)
+        {
+            torchLight.SetActive(false);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player") && !_isBurning)
+        if (collision.CompareTag("Player") && !isBurning)
         {
             StartCoroutine(StartBurningAfterDelay());
         }
-        else if (collision.CompareTag("Player") && _isBurning)
+        else if (collision.CompareTag("Player") && isBurning)
         {
             PlayerController player = collision.gameObject.GetComponent<PlayerController>();
 
             player.Die();
-            _isBurning = false;
+            isBurning = false;
             torchLight.SetActive(false);
         }
     }
@@ -41,7 +46,7 @@ public class Torch : MonoBehaviour
     {
         // SFX will player here
         yield return new WaitForSeconds(burnDelay);
-        _isBurning = true;
+        isBurning = true;
         torchLight.SetActive(true);
     }
 }
