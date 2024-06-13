@@ -665,7 +665,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1722587711656743425, guid: 70ebbead590fb4a3daa1088bd41f5249, type: 3}
       propertyPath: m_Name
-      value: SceneTransation
+      value: SceneTransition
       objectReference: {fileID: 0}
     - target: {fileID: 5256911431350269939, guid: 70ebbead590fb4a3daa1088bd41f5249, type: 3}
       propertyPath: m_LocalPosition.x
@@ -773,7 +773,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -250}
-  m_SizeDelta: {x: 100, y: 30}
+  m_SizeDelta: {x: 116.7576, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1691824768
 MonoBehaviour:
