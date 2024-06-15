@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+// TODO: up arrow key and w key will be jump input
 public class PlayerController : MonoBehaviour
 {
     private Rigidbody2D _rb;
