@@ -66,8 +66,12 @@ public class ChSwipeControler : MonoBehaviour, IEndDragHandler
 
     private void UpdateArrowButton()
     {
-        nextButton.interactable = true;
-        previousButton.interactable = true;
+        // This two line of code will be used in full game
+        /*nextButton.interactable = true;
+        previousButton.interactable = true;*/
+
+        nextButton.interactable = false;
+        previousButton.interactable = false;
 
         if (_currentPage == 1) previousButton.interactable = false;
         else if (_currentPage == maxPage) nextButton.interactable = false;

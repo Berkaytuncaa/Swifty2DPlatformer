@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,6 +14,18 @@ public class SceneController : MonoBehaviour
     public void NextLevel()
     {
         StartCoroutine(LoadLevel());
+    }
+
+    public void PlaySelectedChapter(int levelID)
+    {
+        String chapterName = "Chapter" + levelID;
+        StartCoroutine(OpenChapter());
+        SceneManager.LoadScene(chapterName);
+    }
+
+    public void QuitButton()
+    {
+        Application.Quit();
     }
 
     public void SetDeathScreen()
@@ -35,10 +48,18 @@ public class SceneController : MonoBehaviour
         transationAnim.SetTrigger("Start");
     }
 
+    IEnumerator OpenChapter()
+    {
+        transationAnim.SetTrigger("End");
+        yield return new WaitForSeconds(1.3f);
+        transationAnim.SetTrigger("Start");
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
+            UnlockNewLevel();
             NextLevel();
 
             Rigidbody2D playerRigidbody = collision.GetComponent<Rigidbody2D>();
@@ -49,8 +70,13 @@ public class SceneController : MonoBehaviour
         }
     }
 
-    public void QuitGame()
+    void UnlockNewLevel()
     {
-        Application.Quit();
+        if (SceneManager.GetActiveScene().buildIndex >= PlayerPrefs.GetInt("ReachedIndex"))
+        {
+            PlayerPrefs.SetInt("ReachedIndex", SceneManager.GetActiveScene().buildIndex + 1);
+            PlayerPrefs.SetInt("UnlockedLevel", PlayerPrefs.GetInt("UnlockedLevel", 1) + 1);
+            PlayerPrefs.Save();
+        }
     }
 }
