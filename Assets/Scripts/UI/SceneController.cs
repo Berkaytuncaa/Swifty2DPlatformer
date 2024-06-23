@@ -59,6 +59,7 @@ public class SceneController : MonoBehaviour
     IEnumerator OpenChapter()
     {
         transationAnim.SetTrigger("End");
+        audioManager.PlaySFX(audioManager.transition);
         yield return new WaitForSeconds(1.3f);
         transationAnim.SetTrigger("Start");
     }
