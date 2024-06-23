@@ -1098,7 +1098,10 @@ MonoBehaviour:
   musicSource: {fileID: 130298822}
   sfxSource: {fileID: 879004574}
   movementSource: {fileID: 981861239}
-  background: {fileID: 8300000, guid: 4d4f1aa94d52045ca9b3b4cbd78137ca, type: 3}
+  mainMenuMusic: {fileID: 8300000, guid: 4d4f1aa94d52045ca9b3b4cbd78137ca, type: 3}
+  surfaceMorning: {fileID: 8300000, guid: efaf8a01f8c0c41119546c7646290d9e, type: 3}
+  surfaceEvening: {fileID: 8300000, guid: ff9bcf66134c94fe588310cfe9d76203, type: 3}
+  cave: {fileID: 8300000, guid: 81128ca417980464d8b3fb8954648893, type: 3}
   click: {fileID: 8300000, guid: 853ffdc9fb5924e0fbdda072eeb96aa1, type: 3}
   movement: {fileID: 8300000, guid: 1ce478d67f40f44d08df6f34b6b1fecf, type: 3}
   jump: {fileID: 8300000, guid: 773d9050282434feda4bde1fdcdaf132, type: 3}
@@ -1380,7 +1383,7 @@ RectTransform:
   m_Father: {fileID: 1942549686}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1455,7 +1458,7 @@ RectTransform:
   m_Father: {fileID: 744928112}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -4817,7 +4820,7 @@ RectTransform:
   m_Father: {fileID: 1431996322}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -6716,7 +6719,7 @@ RectTransform:
   m_Father: {fileID: 1172509797}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -7953,7 +7956,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1732062174
 RectTransform:
   m_ObjectHideFlags: 0

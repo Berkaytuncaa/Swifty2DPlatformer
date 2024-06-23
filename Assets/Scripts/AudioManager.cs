@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UIElements;
 
 public class AudioManager : MonoBehaviour
 {
@@ -10,7 +12,10 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioSource movementSource;
 
     [Header("---------- Audio Clip ----------")]
-    public AudioClip background;
+    public AudioClip mainMenuMusic;
+    public AudioClip surfaceMorning;
+    public AudioClip surfaceEvening;
+    public AudioClip cave;
     public AudioClip click;
     public AudioClip movement;
     public AudioClip jump;
@@ -30,12 +35,59 @@ public class AudioManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDestroy()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
     private void Start()
     {
-        musicSource.clip = background;
-        musicSource.Play();
+        PlayBackgroundMusic(mainMenuMusic);
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        // Adjust the music which we want to play in chapters.
+        switch (scene.name)
+        {
+            case "MainMenu":
+                SetBackgroundMusic(mainMenuMusic);
+                break;
+            case "Chapter1":
+            case "Chapter2":
+                SetBackgroundMusic(surfaceMorning);
+                break;
+            case "Chapter3":
+                SetBackgroundMusic(surfaceEvening);
+                break;
+            case "Chapter4":
+                SetBackgroundMusic(cave);
+                break;
+            default:
+                SetBackgroundMusic(mainMenuMusic);
+                break;
+        }
+    }
+
+    public void SetBackgroundMusic(AudioClip clip)
+    {
+        if (musicSource.clip != clip)
+        {
+            musicSource.clip = clip;
+            musicSource.Play();
+        }
+    }
+
+    public void PlayBackgroundMusic(AudioClip clip)
+    {
+        if (musicSource.clip != clip)
+        {
+            musicSource.clip = clip;
+            musicSource.Play();
+        }
     }
 
     public void PlayMovementSFX()
