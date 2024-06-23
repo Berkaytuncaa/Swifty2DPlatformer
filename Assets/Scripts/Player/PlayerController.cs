@@ -5,12 +5,16 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    #region References
     private Rigidbody2D _rb;
     private BoxCollider2D _collider;
     private Animator _anim;
     private Vector2 _startPos;
     private SceneController _sceneController;
+    private AudioManager audioManager;
+    #endregion
 
+    #region Serialized Fields
     [SerializeField] private LayerMask platformLayer;
     [SerializeField] private float movementSpeed;
     [SerializeField] private float jumpForce;
@@ -18,14 +22,18 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float wallJumpForce;
     [SerializeField] private ParticleSystem movementParticle;
     [SerializeField] private ParticleSystem deathParticle;
+    #endregion
 
+    #region State Flags
     private bool _isFacingRight = true;
     private bool _isRunning;
     private bool _isWallSliding;
     private bool _canWallJump;
     private bool _isWallJumping;
     private bool _isAttemptingToJump;
+    #endregion
 
+    #region Movement Variables
     private float _movementInputDirection;
     private float airDrapMultiplier = 0.95f;
     private float _variableJumpHeight = 0.5f;
@@ -33,8 +41,13 @@ public class PlayerController : MonoBehaviour
     private float _jumpTimer;
     private float _jumpTimerSet = 0.15f;
     private float _coyoteTimeCounter;
-
     private int _facingDirection = 1;
+    #endregion
+
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
 
     private void Start()
     {
@@ -76,6 +89,15 @@ public class PlayerController : MonoBehaviour
 
     private void UpdateAnimations()
     {
+        if (_isRunning && IsGrounded())
+        {
+            audioManager.PlayMovementSFX();
+        }
+        else
+        {
+            audioManager.StopMovementSFX();
+        }
+
         _anim.SetBool("_isRunning", _isRunning);
         _anim.SetBool("isGrounded", IsGrounded());
         _anim.SetFloat("yVelocity", _rb.velocity.y);
@@ -174,6 +196,7 @@ public class PlayerController : MonoBehaviour
         _jumpTimer = 0;
         _isAttemptingToJump = false;
 
+        audioManager.PlaySFX(audioManager.jump);
         movementParticle.Play();
     }
 
@@ -186,6 +209,8 @@ public class PlayerController : MonoBehaviour
         _rb.velocity = new Vector2(wallDirection * wallJumpForce, jumpForce);
 
         Invoke("ResetWallJump", 0.2f);
+
+        audioManager.PlaySFX(audioManager.jump);
 
         _jumpTimer = 0;
         _isAttemptingToJump = false;
@@ -235,6 +260,9 @@ public class PlayerController : MonoBehaviour
     public void Die()
     {
         _sceneController.SetDeathScreen();
+
+        audioManager.PlaySFX(audioManager.death);
+
         StartCoroutine(Respawn(1));
     }
 

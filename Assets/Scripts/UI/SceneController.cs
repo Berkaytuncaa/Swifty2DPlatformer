@@ -11,6 +11,13 @@ public class SceneController : MonoBehaviour
 {
     [SerializeField] private Animator transationAnim;
 
+    private AudioManager audioManager;
+
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
+
     public void NextLevel()
     {
         StartCoroutine(LoadLevel());
@@ -36,6 +43,7 @@ public class SceneController : MonoBehaviour
     IEnumerator LoadLevel()
     {
         transationAnim.SetTrigger("End");
+        audioManager.PlaySFX(audioManager.transition);
         yield return new WaitForSeconds(1.3f);
         SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
         transationAnim.SetTrigger("Start");
