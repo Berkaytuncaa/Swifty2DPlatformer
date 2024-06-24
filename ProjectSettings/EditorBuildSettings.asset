@@ -15,10 +15,10 @@ EditorBuildSettings:
     path: Assets/Scenes/DemoScenes/Chapter2.unity
     guid: 6822f2b7757b1443798664d06b733326
   - enabled: 1
-    path: Assets/Scenes/DemoScenes/Chapter3.unity
+    path: Assets/Scenes/DemoScenes/Chapter7.unity
     guid: e3ae1f9bfa8fa44038491d7dd55a1e4e
   - enabled: 1
-    path: Assets/Scenes/DemoScenes/Chapter4.unity
+    path: Assets/Scenes/DemoScenes/Chapter9.unity
     guid: d963ecce436744c919938ba619d11768
   - enabled: 1
     path: Assets/Scenes/DemoScenes/Chapter100.unity
