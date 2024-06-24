@@ -29,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.58, y: -3.5, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 1}
+  m_LocalScale: {x: 7.0935, y: 7.7915, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -113,7 +113,7 @@ MonoBehaviour:
   - {x: 0.07999992, y: -0.08000004, z: 0}
   m_ShapePathHash: -1233628518
   m_Mesh: {fileID: 0}
-  m_InstanceId: -104418
+  m_InstanceId: -110934
   m_LocalBounds:
     m_Center: {x: -0.000000029802322, y: -0.021524046, z: 0}
     m_Extent: {x: 0.07999995, y: 0.058475997, z: 0}
@@ -146,7 +146,7 @@ PolygonCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
