@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4782737407003963581}
   - component: {fileID: 710096139937562029}
-  - component: {fileID: 7973738314190014960}
+  - component: {fileID: 1655162533306966657}
+  - component: {fileID: 6599149793714213468}
   m_Layer: 0
   m_Name: Spike
   m_TagString: Obstacle
@@ -28,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.58, y: -3.5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 5, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -85,7 +86,38 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!60 &7973738314190014960
+--- !u!114 &1655162533306966657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6207997072132040715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_ComponentVersion: 1
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 1
+  m_ApplyToSortingLayers: bd3618f000000000e7e8d1cf23496f0e735a8adb
+  m_ShapePath:
+  - {x: -0.07999998, y: -0.08000004, z: 0}
+  - {x: -0.044548824, y: 0.03631895, z: 0}
+  - {x: -0.0058359406, y: -0.03561847, z: 0}
+  - {x: 0.031887315, y: 0.03695195, z: 0}
+  - {x: 0.07999992, y: -0.08000004, z: 0}
+  m_ShapePathHash: -1233628518
+  m_Mesh: {fileID: 0}
+  m_InstanceId: -104418
+  m_LocalBounds:
+    m_Center: {x: -0.000000029802322, y: -0.021524046, z: 0}
+    m_Extent: {x: 0.07999995, y: 0.058475997, z: 0}
+--- !u!60 &6599149793714213468
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -114,14 +146,14 @@ PolygonCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 0.16, y: 0.16}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -129,13 +161,17 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.34241247, y: -0.050502777}
-      - {x: -0.3491106, y: -0.06272364}
-      - {x: -0.48670578, y: -0.30180073}
-      - {x: -0.5067277, y: -0.40209627}
-      - {x: -0.5, y: -0.5}
-      - {x: 0.45346928, y: -0.5}
-      - {x: 0.4481473, y: -0.3910122}
-      - {x: 0.40029097, y: -0.27059054}
-      - {x: 0.27593994, y: -0.050503016}
+    - - {x: 0.027162718, y: -0.008163423}
+      - {x: -0.006468894, y: -0.020386957}
+      - {x: -0.037765145, y: -0.007720205}
+      - {x: -0.050633047, y: -0.008358756}
+      - {x: -0.05988505, y: -0.019179747}
+      - {x: -0.065439634, y: -0.028358754}
+      - {x: -0.08267848, y: -0.059373543}
+      - {x: -0.08189919, y: -0.07620161}
+      - {x: 0.07240326, y: -0.07810081}
+      - {x: 0.071070455, y: -0.06115987}
+      - {x: 0.06417348, y: -0.04202812}
+      - {x: 0.053075146, y: -0.021488734}
+      - {x: 0.03987107, y: -0.008358708}
   m_UseDelaunayMesh: 0
