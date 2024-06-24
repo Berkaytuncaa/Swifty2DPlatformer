@@ -11,16 +11,23 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioSource sfxSource;
     [SerializeField] private AudioSource movementSource;
 
-    [Header("---------- Audio Clip ----------")]
+    [Header("---------- Chapter Clips ----------")]
     public AudioClip mainMenuMusic;
     public AudioClip surfaceMorning;
     public AudioClip surfaceEvening;
     public AudioClip cave;
-    public AudioClip click;
+
+    [Header("---------- Player Clips ----------")]
     public AudioClip movement;
     public AudioClip jump;
     public AudioClip death;
+
+    [Header("---------- UI Clips ----------")]
     public AudioClip transition;
+    public AudioClip click;
+
+    [Header("---------- Obstacle Clips ----------")]
+    public AudioClip spikeBall;
 
     public static AudioManager instance;
 

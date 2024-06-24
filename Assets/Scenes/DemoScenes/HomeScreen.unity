@@ -1102,11 +1102,12 @@ MonoBehaviour:
   surfaceMorning: {fileID: 8300000, guid: efaf8a01f8c0c41119546c7646290d9e, type: 3}
   surfaceEvening: {fileID: 8300000, guid: ff9bcf66134c94fe588310cfe9d76203, type: 3}
   cave: {fileID: 8300000, guid: 81128ca417980464d8b3fb8954648893, type: 3}
-  click: {fileID: 8300000, guid: 853ffdc9fb5924e0fbdda072eeb96aa1, type: 3}
   movement: {fileID: 8300000, guid: 1ce478d67f40f44d08df6f34b6b1fecf, type: 3}
   jump: {fileID: 8300000, guid: 773d9050282434feda4bde1fdcdaf132, type: 3}
   death: {fileID: 8300000, guid: 903ca4dd009064158a3b86fa2236d04e, type: 3}
   transition: {fileID: 8300000, guid: 5cf9e13fe07e8461e92afb96f43f6a2a, type: 3}
+  click: {fileID: 8300000, guid: 853ffdc9fb5924e0fbdda072eeb96aa1, type: 3}
+  spikeBall: {fileID: 8300000, guid: b63282fbe34be4fb89ffa497d68a723a, type: 3}
 --- !u!4 &224855860
 Transform:
   m_ObjectHideFlags: 0
@@ -2486,7 +2487,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 20, y: 100}
+  m_AnchoredPosition: {x: 35, y: 100}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &620582561
@@ -3693,7 +3694,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &836188850
 RectTransform:
   m_ObjectHideFlags: 0
