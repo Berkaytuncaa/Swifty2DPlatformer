@@ -66,6 +66,7 @@ public class AudioManager : MonoBehaviour
             case "Chapter1":
             case "Chapter2":
             case "Chapter3":
+            case "Chapter4":
                 SetBackgroundMusic(surfaceMorning);
                 break;
             case "Chapter7":
