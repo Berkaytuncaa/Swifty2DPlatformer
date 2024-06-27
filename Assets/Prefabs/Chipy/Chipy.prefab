@@ -9848,7 +9848,7 @@ MonoBehaviour:
   platformLayer:
     serializedVersion: 2
     m_Bits: 64
-  movementSpeed: 7
+  movementSpeed: 8
   jumpForce: 16
   wallSlidingSpeed: 2
   wallJumpForce: 30

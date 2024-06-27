@@ -16,6 +16,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip surfaceMorning;
     public AudioClip surfaceEvening;
     public AudioClip cave;
+    public AudioClip chipy;
 
     [Header("---------- Player Clips ----------")]
     public AudioClip movement;
@@ -74,6 +75,9 @@ public class AudioManager : MonoBehaviour
                 break;
             case "Chapter9":
                 SetBackgroundMusic(cave);
+                break;
+            case "Chapter100":
+                SetBackgroundMusic(chipy);
                 break;
             default:
                 SetBackgroundMusic(mainMenuMusic);
