@@ -27,6 +27,9 @@ EditorBuildSettings:
     path: Assets/Scenes/DemoScenes/Chapter9.unity
     guid: d963ecce436744c919938ba619d11768
   - enabled: 1
-    path: Assets/Scenes/DemoScenes/Chapter100.unity
+    path: Assets/Scenes/DemoScenes/Chapter99.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/ChipyScenes/Chapter100.unity
+    guid: c6b3094fb348740f48b7f60195e5f0db
   m_configObjects: {}
