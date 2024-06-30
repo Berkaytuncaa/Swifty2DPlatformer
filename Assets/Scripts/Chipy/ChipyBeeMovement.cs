@@ -12,6 +12,13 @@ public class ChipyBeeMovement : MonoBehaviour
 
     private bool movingRight = true;
 
+    private SpriteRenderer spriteRenderer;
+
+    private void Start()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+    }
+
     private void Update()
     {
         MoveZigzag();
@@ -23,6 +30,15 @@ public class ChipyBeeMovement : MonoBehaviour
         float verticalMovement = Mathf.Sin(Time.time * zigzagFrequency) * zigzagAmplitude * Time.deltaTime;
 
         transform.Translate(new Vector3(horizontalMovement * (movingRight ? 1 : -1), verticalMovement, 0));
+
+        if (movingRight && !spriteRenderer.flipX)
+        {
+            spriteRenderer.flipX = true;
+        }
+        else if (!movingRight && spriteRenderer.flipX)
+        {
+            spriteRenderer.flipX = false;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

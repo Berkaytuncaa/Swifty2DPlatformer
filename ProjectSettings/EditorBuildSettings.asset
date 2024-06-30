@@ -21,6 +21,12 @@ EditorBuildSettings:
     path: Assets/Scenes/DemoScenes/Chapter4.unity
     guid: 004633a133a4a46f5b43dfbffcf2e642
   - enabled: 1
+    path: Assets/Scenes/DemoScenes/Chapter5.unity
+    guid: 8bae70cc92ea4402bb9a4c6baa2c94e0
+  - enabled: 1
+    path: Assets/Scenes/DemoScenes/Chapter6.unity
+    guid: 066aa68e42ce441bab2472f8be3e591d
+  - enabled: 1
     path: Assets/Scenes/ChipyScenes/Chapter100.unity
     guid: c6b3094fb348740f48b7f60195e5f0db
   - enabled: 1
@@ -32,7 +38,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/DemoScenes/Chapter9.unity
     guid: d963ecce436744c919938ba619d11768
-  - enabled: 1
-    path: Assets/Scenes/DemoScenes/Chapter99.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
   m_configObjects: {}
