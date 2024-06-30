@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 7949209909329810564}
   - component: {fileID: 2148613680349370443}
   - component: {fileID: 4334955051151324762}
-  - component: {fileID: 6534604731321858811}
+  - component: {fileID: -3290435899179711912}
   m_Layer: 0
-  m_Name: SpikedBall
+  m_Name: SpikedBallRight
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 15
-  moveRight: 0
+  moveRight: 1
 --- !u!212 &7949209909329810564
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -164,7 +164,7 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.28, y: 0.28}
   m_Direction: 0
---- !u!114 &6534604731321858811
+--- !u!114 &-3290435899179711912
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -190,7 +190,7 @@ MonoBehaviour:
   - {x: 0.1400001, y: -0.13999999, z: 0}
   m_ShapePathHash: 0
   m_Mesh: {fileID: 0}
-  m_InstanceId: -37736
+  m_InstanceId: -37742
   m_LocalBounds:
     m_Center: {x: 0.000000059604645, y: 0.000000059604645, z: 0}
     m_Extent: {x: 0.14000005, y: 0.14000005, z: 0}
