@@ -20,7 +20,14 @@ public class SceneController : MonoBehaviour
 
     public void NextLevel()
     {
-        StartCoroutine(LoadLevel());
+        if (IsLastScene())
+        {
+            LoadHomeScreen();
+        }
+        else
+        {
+            StartCoroutine(LoadLevel());
+        }
     }
 
     public void PlaySelectedChapter(int levelID)
@@ -87,5 +94,24 @@ public class SceneController : MonoBehaviour
             PlayerPrefs.SetInt("UnlockedLevel", PlayerPrefs.GetInt("UnlockedLevel", 1) + 1);
             PlayerPrefs.Save();
         }
+    }
+
+    private bool IsLastScene()
+    {
+        return SceneManager.GetActiveScene().buildIndex == SceneManager.sceneCountInBuildSettings - 1;
+    }
+
+    private void LoadHomeScreen()
+    {
+        StartCoroutine(LoadHomeScreenCoroutine());
+    }
+
+    IEnumerator LoadHomeScreenCoroutine()
+    {
+        transationAnim.SetTrigger("End");
+        audioManager.PlaySFX(audioManager.transition);
+        yield return new WaitForSeconds(1.3f);
+        SceneManager.LoadScene("HomeScreen");
+        transationAnim.SetTrigger("Start");
     }
 }
