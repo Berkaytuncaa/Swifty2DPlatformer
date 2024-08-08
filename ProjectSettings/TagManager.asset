@@ -8,6 +8,7 @@ TagManager:
   - FinishPoint
   - Audio
   - RockHead
+  - ShooterPlant
   layers:
   - Default
   - TransparentFX
