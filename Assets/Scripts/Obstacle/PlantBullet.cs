@@ -4,15 +4,28 @@ using UnityEngine;
 
 public class PlantBullet : MonoBehaviour
 {
-    // Start is called before the first frame update
+    private Rigidbody2D _rb;
+    [SerializeField] private float speed;
+    [SerializeField] private bool moveRight;
+
     void Start()
     {
-        
+        _rb = gameObject.GetComponent<Rigidbody2D>();
+        if (moveRight)
+        {
+            _rb.velocity = Vector2.right * speed;
+        }
+        else
+        {
+            _rb.velocity = Vector2.left * speed;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        if (!collision.CompareTag("ShooterPlant"))
+        {
+            Destroy(gameObject);
+        }
     }
 }
