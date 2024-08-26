@@ -7,12 +7,14 @@ public class ShooterPlant : MonoBehaviour
     [Header("Spawn Settings")]
     [SerializeField] private GameObject plantbulletPrefab;
     [SerializeField] private float spawnDelay = 2.0f;
+    [SerializeField] private float yOffset = 0.5f;
+    [SerializeField] private float xOffset = 0.3f;
     [SerializeField] private ParticleSystem poisonParticle;
     private Vector2 _spawnPoint;
 
     private void Start()
     {
-        _spawnPoint = transform.position;
+        _spawnPoint = new Vector2(transform.position.x + xOffset, transform.position.y + yOffset);
         StartCoroutine(SpawnPlantBullets());
     }
 
