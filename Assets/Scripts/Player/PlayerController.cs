@@ -225,7 +225,7 @@ public class PlayerController : MonoBehaviour
     {
         float extraHeight = 0.3f;
         RaycastHit2D raycastHit = Physics2D.BoxCast(
-            _collider.bounds.center, _collider.bounds.size, 0 ,Vector2.down, extraHeight, platformLayer);
+            _collider.bounds.center, new Vector3(_collider.bounds.size.x / 1.1f, _collider.bounds.size.y, _collider.bounds.size.z), 0, Vector2.down, extraHeight, platformLayer);
 
         return raycastHit.collider != null;
     }
@@ -284,5 +284,17 @@ public class PlayerController : MonoBehaviour
             deathParticle.Play();
             Die();
         }
+    }
+
+    private void OnDrawGizmos()
+    {
+        if (_collider == null) return;
+
+        float extraHeight = 0.3f;
+        Gizmos.color = Color.red;
+
+        Vector2 boxCastPos = (Vector2)_collider.bounds.center + Vector2.down * extraHeight / 2;
+
+        Gizmos.DrawWireCube(boxCastPos, new Vector2(_collider.bounds.size.x / 1.1f, _collider.bounds.size.y + extraHeight));
     }
 }
