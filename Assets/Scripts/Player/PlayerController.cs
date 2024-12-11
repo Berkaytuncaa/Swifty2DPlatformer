@@ -119,13 +119,15 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetButtonDown("Jump"))
         {
-            if (_coyoteTimeCounter > 0f && !_isWallSliding)
+            if (_coyoteTimeCounter > 0f && !_isWallSliding && IsGrounded())
             {
                 Jump();
+                //Debug.Log("I have just jumped");
             }
             else if(_canWallJump && !_isWallJumping && !IsGrounded())
             {
                 WallJump();
+                //Debug.Log("I have just wall-jumped");
             }
             else
             {
@@ -173,11 +175,11 @@ public class PlayerController : MonoBehaviour
     {
         if (_jumpTimer > 0)
         {
-            if (_canWallJump && !_isWallJumping && !IsGrounded())
+            if (_canWallJump && !_isWallJumping && !IsGrounded() && _isWallSliding)
             {
                 WallJump();
             }
-            else if (IsGrounded() && !_isWallSliding)
+            else if (IsGrounded() && !_isWallSliding && !_isWallJumping)
             {
                 Jump();
             }
