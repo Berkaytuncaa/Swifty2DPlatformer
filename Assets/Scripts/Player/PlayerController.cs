@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour
     #endregion
 
     #region State Flags
+    private bool _canMove = true;
     private bool _isFacingRight = true;
     private bool _isRunning;
     private bool _isWallSliding;
@@ -119,7 +120,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetButtonDown("Jump"))
         {
-            if (_coyoteTimeCounter > 0f && !_isWallSliding && IsGrounded())
+            if (_coyoteTimeCounter > 0f && !_isWallSliding)
             {
                 Jump();
                 //Debug.Log("I have just jumped");

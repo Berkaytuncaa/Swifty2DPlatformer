@@ -32,7 +32,7 @@ public class SceneController : MonoBehaviour
 
     public void PlaySelectedChapter(int levelID)
     {
-        String chapterName = "Chapter" + levelID;
+        String chapterName = "DEMOChapter" + levelID;
         StartCoroutine(OpenChapter());
         SceneManager.LoadScene(chapterName);
     }
