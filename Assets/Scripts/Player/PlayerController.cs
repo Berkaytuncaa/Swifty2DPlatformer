@@ -118,7 +118,7 @@ public class PlayerController : MonoBehaviour
             _coyoteTimeCounter -= Time.deltaTime;
         }
 
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
         {
             if (_coyoteTimeCounter > 0f && !_isWallSliding)
             {
@@ -137,7 +137,7 @@ public class PlayerController : MonoBehaviour
             }
         }
         
-        if (Input.GetButtonUp("Jump"))
+        if (Input.GetKeyUp(KeyCode.Space) || Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.UpArrow))
         {
             _rb.velocity = new Vector2(_rb.velocity.x, _rb.velocity.y * _variableJumpHeight);
             _coyoteTimeCounter = 0f;
