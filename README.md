@@ -1,6 +1,6 @@
 # Swifty2DPlatformer
 This is my 2D platformer game Swifty made with UNITY
-#TODO
+# TODO
 - Improve PlayerController.cs, especially it's Wall Jumping mechanics. The feeling of the player movement needs to be more user friendly, easier and smoother. -DEMO WILL INCLUDE-
 - Improve Main Menu and in-game UI.-DEMO WILL INCLUDE-
 - Create 5 in-game musics and a Menu music total of 6 Music.-DEMO WILL INCLUDE-
