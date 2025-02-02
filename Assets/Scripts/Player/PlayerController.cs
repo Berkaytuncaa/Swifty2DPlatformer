@@ -25,7 +25,6 @@ public class PlayerController : MonoBehaviour
     #endregion
 
     #region State Flags
-    private bool _canMove = true;
     private bool _isFacingRight = true;
     private bool _isRunning;
     private bool _isWallSliding;
@@ -36,7 +35,6 @@ public class PlayerController : MonoBehaviour
 
     #region Movement Variables
     private float _movementInputDirection;
-    private float airDrapMultiplier = 0.95f;
     private float _variableJumpHeight = 0.5f;
     private float _coyoteTime = 0.2f;
     private float _jumpTimer;
@@ -76,11 +74,11 @@ public class PlayerController : MonoBehaviour
 
     private void CheckMovementDirection()
     {
-        if (_isFacingRight && _movementInputDirection < 0)
+        if (_isFacingRight && _movementInputDirection < 0 && !_isWallSliding)
         {
             Flip();
         }
-        else if (!_isFacingRight && _movementInputDirection > 0)
+        else if (!_isFacingRight && _movementInputDirection > 0 && !_isWallSliding)
         {
             Flip();
         }
@@ -146,21 +144,17 @@ public class PlayerController : MonoBehaviour
 
     private void ApplyMovement()
     {
-        if (!IsGrounded() && _isWallSliding && _movementInputDirection == 0)
-        {
-            _rb.velocity = new Vector2(_rb.velocity.x * airDrapMultiplier, _rb.velocity.y);
-        }
-        else
-        {
-            _rb.velocity = new Vector2(movementSpeed * _movementInputDirection, _rb.velocity.y);
-        }
-
         if (_isWallSliding && _rb.velocity.y < -wallSlidingSpeed)
         {
             _rb.velocity = new Vector2(_rb.velocity.x, -wallSlidingSpeed);
 
             movementParticle.Play();
         }
+        else
+        {
+            _rb.velocity = new Vector2(movementSpeed * _movementInputDirection, _rb.velocity.y);
+        }
+
     }
 
     private void Flip()
@@ -266,7 +260,7 @@ public class PlayerController : MonoBehaviour
 
         audioManager.PlaySFX(audioManager.death);
 
-        StartCoroutine(Respawn(1));
+        StartCoroutine(Respawn(1.2f));
     }
 
     private IEnumerator Respawn(float duration)
