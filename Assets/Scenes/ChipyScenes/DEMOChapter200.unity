@@ -1327,6 +1327,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2257558395210575433, guid: b5c588c8bdcb142639012d3d7e423150, type: 3}
+      propertyPath: wallJumpDirection.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2257558395210575433, guid: b5c588c8bdcb142639012d3d7e423150, type: 3}
+      propertyPath: wallJumpDirection.y
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 6665587262579902418, guid: b5c588c8bdcb142639012d3d7e423150, type: 3}
       propertyPath: m_LocalPosition.x
       value: -19.58

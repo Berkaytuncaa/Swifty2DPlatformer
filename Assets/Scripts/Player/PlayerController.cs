@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float movementSpeed;
     [SerializeField] private float jumpForce;
     [SerializeField] private float wallSlidingSpeed;
-    [SerializeField] private float wallJumpForce;
+    [SerializeField] private Vector2 wallJumpDirection;
     [SerializeField] private ParticleSystem movementParticle;
     [SerializeField] private ParticleSystem deathParticle;
     #endregion
@@ -201,9 +201,8 @@ public class PlayerController : MonoBehaviour
     {
         _isWallJumping = true;
 
-        int wallDirection = IsTouchingWall() ? (int)Mathf.Sign(_rb.velocity.x) : (_isFacingRight ? -1 : 1);
-
-        _rb.velocity = new Vector2(wallDirection * wallJumpForce, jumpForce);
+        Vector2 direction = new Vector2(wallJumpDirection.x * -_facingDirection, wallJumpDirection.y);
+        _rb.AddForce(direction, ForceMode2D.Impulse);
 
         Invoke("ResetWallJump", 0.2f);
 

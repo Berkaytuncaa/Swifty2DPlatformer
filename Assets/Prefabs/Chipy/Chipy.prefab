@@ -9851,7 +9851,7 @@ MonoBehaviour:
   movementSpeed: 8
   jumpForce: 16
   wallSlidingSpeed: 2
-  wallJumpForce: 30
+  wallJumpDirection: {x: 5, y: 15}
   movementParticle: {fileID: 7876429638761452609}
   deathParticle: {fileID: 2092655203004654246}
 --- !u!95 &2075307195852145807
