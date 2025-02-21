@@ -61,29 +61,29 @@ public class AudioManager : MonoBehaviour
         // Adjust the music which we want to play in chapters.
         switch (scene.name)
         {
-            case "MainMenu":
+            case "HomeScreen":
                 SetBackgroundMusic(mainMenuMusic);
                 break;
-            case "Chapter1":
-            case "Chapter2":
-            case "Chapter3":
-            case "Chapter4":
+            case "DEMOChapter1":
+            case "DEMOChapter2":
+            case "DEMOChapter3":
+            case "DEMOChapter4":
                 SetBackgroundMusic(surfaceMorning);
                 break;
-            case "Chapter5":
-            case "Chapter6":
-            case "Chapter7":
+            case "DEMOChapter5":
+            case "DEMOChapter6":
+            case "DEMOChapter7":
                 SetBackgroundMusic(surfaceEvening);
                 break;
-            case "Chapter8":
-            case "Chapter9":
-            case "Chapter10":
+            case "DEMOChapter8":
+            case "DEMOChapter9":
+            case "DEMOChapter10":
                 SetBackgroundMusic(cave);
                 break;
-            case "Chapter11":
+            case "DEMOChapter11":
                 SetBackgroundMusic(surfaceMorning);
                 break;
-            case "Chapter100":
+            case "DEMOChapter200":
                 SetBackgroundMusic(chipy);
                 break;
             default:

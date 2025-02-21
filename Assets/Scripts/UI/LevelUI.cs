@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class LevelUI : MonoBehaviour
 {
     public Button[] buttons;
-
+    // public Text ButtonText;
     private void Awake()
     {
         int unlockedLevel = PlayerPrefs.GetInt("UnlockedLevel", 1);
