@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class PlayerController : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class PlayerController : MonoBehaviour
     private Vector2 _startPos;
     private SceneController _sceneController;
     private AudioManager audioManager;
+    private CinemachineImpulseSource _impulseSource;
     #endregion
 
     #region Serialized Fields
@@ -57,6 +59,7 @@ public class PlayerController : MonoBehaviour
         _sceneController = FindObjectOfType<SceneController>();
 
         _startPos = transform.position;
+        _impulseSource = GetComponent<CinemachineImpulseSource>();
     }
 
     private void Update()
@@ -258,9 +261,9 @@ public class PlayerController : MonoBehaviour
 
     public void Die()
     {
-        _sceneController.SetDeathScreen();
-
         audioManager.PlaySFX(audioManager.death);
+        CameraShakeManager.instance.CameraShake(_impulseSource);
+        _sceneController.SetDeathScreen();
 
         StartCoroutine(Respawn(1.3f));
     }

@@ -73,7 +73,7 @@ public class AudioManager : MonoBehaviour
             case "DEMOChapter5":
             case "DEMOChapter6":
             case "DEMOChapter7":
-                SetBackgroundMusic(surfaceEvening);
+                SetBackgroundMusic(surfaceMorning);
                 break;
             case "DEMOChapter8":
             case "DEMOChapter9":
