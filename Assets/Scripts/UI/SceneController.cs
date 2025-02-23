@@ -89,14 +89,39 @@ public class SceneController : MonoBehaviour
     void UnlockNewLevel()
     {
         int currentIndex = SceneManager.GetActiveScene().buildIndex;
-        PlayerPrefs.SetString("ChapterTime_" + (currentIndex - 1), Timer.instance.timerText.text);
+        string timeKey = "ChapterTime_" + (currentIndex - 1);
 
-        if (SceneManager.GetActiveScene().buildIndex >= PlayerPrefs.GetInt("ReachedIndex"))
+        // Current completion time
+        string currentTimeStr = Timer.instance.timerText.text;
+        int currentTimeInSeconds = ConvertTimeToSeconds(currentTimeStr);
+
+        // Retrieve the best time (default to a large time if none exists)
+        string bestTimeStr = PlayerPrefs.GetString(timeKey, "99:59");
+        int bestTimeInSeconds = ConvertTimeToSeconds(bestTimeStr);
+
+        // Save the new time only if it's better
+        if (currentTimeInSeconds < bestTimeInSeconds)
         {
-            PlayerPrefs.SetInt("ReachedIndex", SceneManager.GetActiveScene().buildIndex + 1);
+            PlayerPrefs.SetString(timeKey, currentTimeStr);
+        }
+
+        // Unlock the next level
+        if (currentIndex >= PlayerPrefs.GetInt("ReachedIndex"))
+        {
+            PlayerPrefs.SetInt("ReachedIndex", currentIndex + 1);
             PlayerPrefs.SetInt("UnlockedLevel", PlayerPrefs.GetInt("UnlockedLevel", 1) + 1);
         }
+
         PlayerPrefs.Save();
+    }
+
+    // Helper function to convert "MM : SS" to total seconds
+    private int ConvertTimeToSeconds(string time)
+    {
+        string[] timeParts = time.Split(':');
+        int minutes = int.Parse(timeParts[0].Trim());
+        int seconds = int.Parse(timeParts[1].Trim());
+        return (minutes * 60) + seconds;
     }
 
     private bool IsLastScene()
