@@ -88,13 +88,15 @@ public class SceneController : MonoBehaviour
 
     void UnlockNewLevel()
     {
+        int currentIndex = SceneManager.GetActiveScene().buildIndex;
+        PlayerPrefs.SetString("ChapterTime_" + (currentIndex - 1), Timer.instance.timerText.text);
+
         if (SceneManager.GetActiveScene().buildIndex >= PlayerPrefs.GetInt("ReachedIndex"))
         {
-            // set PlayerPrefs.SetString("Highscore" SceneManager.GetActiveScene() + currentTime);
             PlayerPrefs.SetInt("ReachedIndex", SceneManager.GetActiveScene().buildIndex + 1);
             PlayerPrefs.SetInt("UnlockedLevel", PlayerPrefs.GetInt("UnlockedLevel", 1) + 1);
-            PlayerPrefs.Save();
         }
+        PlayerPrefs.Save();
     }
 
     private bool IsLastScene()

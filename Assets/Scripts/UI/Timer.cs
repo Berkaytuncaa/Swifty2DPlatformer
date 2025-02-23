@@ -5,9 +5,18 @@ using TMPro;
 
 public class Timer : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI timerText;
+    public static Timer instance;
+
+    [SerializeField] public TextMeshProUGUI timerText;
     private float _elapsedTime;
 
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+    }
     void Update()
     {
         _elapsedTime += Time.deltaTime;
