@@ -7,14 +7,28 @@ public class HUD : MonoBehaviour
 {
     [SerializeField] private GameObject pauseMenu;
     private AudioManager audioManager;
+    private bool _isPaused = false;
 
     private void Awake()
     {
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape) && !_isPaused)
+        {
+            Pause();
+        }
+        else if (Input.GetKeyDown(KeyCode.Escape) && _isPaused)
+        {
+            Resume();
+        }
+    }
+
     public void Pause()
     {
+        _isPaused = true;
         audioManager.PlaySFX(audioManager.click);
         pauseMenu.SetActive(true);
         Time.timeScale = 0;
@@ -36,6 +50,7 @@ public class HUD : MonoBehaviour
 
     public void Resume()
     {
+        _isPaused = false;
         audioManager.PlaySFX(audioManager.click);
         pauseMenu.SetActive(false);
         Time.timeScale = 1;

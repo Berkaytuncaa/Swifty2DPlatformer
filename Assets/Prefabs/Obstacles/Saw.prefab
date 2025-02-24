@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2242341320571895130}
   - component: {fileID: 7076244438378177792}
   - component: {fileID: 5837603147948983989}
+  - component: {fileID: 6496339427934126852}
   m_Layer: 0
   m_Name: Saw
   m_TagString: Obstacle
@@ -182,3 +183,46 @@ PolygonCollider2D:
       - {x: 0.13641906, y: 0.0686152}
       - {x: 0.17475718, y: 0.096986935}
   m_UseDelaunayMesh: 0
+--- !u!114 &6496339427934126852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8315736188755657172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_ComponentVersion: 1
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_ApplyToSortingLayers: bd3618f000000000e7e8d1cf23496f0e735a8adb
+  m_ShapePath:
+  - {x: -0.036068916, y: -0.19587517, z: 0}
+  - {x: -0.05996561, y: -0.12971401, z: 0}
+  - {x: -0.1856947, y: -0.116788626, z: 0}
+  - {x: -0.13399315, y: -0.059211254, z: 0}
+  - {x: -0.19157028, y: 0.05711794, z: 0}
+  - {x: -0.1429987, y: 0.057219982, z: 0}
+  - {x: -0.12459326, y: 0.17932272, z: 0}
+  - {x: -0.06701565, y: 0.13232088, z: 0}
+  - {x: 0.041088104, y: 0.19929838, z: 0}
+  - {x: 0.06928921, y: 0.13937116, z: 0}
+  - {x: 0.12216616, y: 0.14524627, z: 0}
+  - {x: 0.18647528, y: 0.10539675, z: 0}
+  - {x: 0.14096689, y: 0.058293104, z: 0}
+  - {x: 0.19619417, y: -0.05216098, z: 0}
+  - {x: 0.12686634, y: -0.055686235, z: 0}
+  - {x: 0.108922005, y: -0.17707443, z: 0}
+  - {x: 0.06811428, y: -0.12148857, z: 0}
+  m_ShapePathHash: 58607039
+  m_Mesh: {fileID: 0}
+  m_InstanceId: 66836
+  m_LocalBounds:
+    m_Center: {x: 0.002311945, y: 0.001711607, z: 0}
+    m_Extent: {x: 0.19388223, y: 0.19758677, z: 0}

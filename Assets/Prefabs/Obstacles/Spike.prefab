@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4782737407003963581}
   - component: {fileID: 710096139937562029}
-  - component: {fileID: 1655162533306966657}
   - component: {fileID: 6599149793714213468}
+  - component: {fileID: 5169875600605965246}
   m_Layer: 0
   m_Name: Spike
   m_TagString: Obstacle
@@ -86,37 +86,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1655162533306966657
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6207997072132040715}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_ShadowGroup: 0
-  m_ComponentVersion: 1
-  m_HasRenderer: 1
-  m_UseRendererSilhouette: 1
-  m_CastsShadows: 1
-  m_SelfShadows: 1
-  m_ApplyToSortingLayers: bd3618f000000000e7e8d1cf23496f0e735a8adb
-  m_ShapePath:
-  - {x: -0.07999998, y: -0.08000004, z: 0}
-  - {x: -0.044548824, y: 0.03631895, z: 0}
-  - {x: -0.0058359406, y: -0.03561847, z: 0}
-  - {x: 0.031887315, y: 0.03695195, z: 0}
-  - {x: 0.07999992, y: -0.08000004, z: 0}
-  m_ShapePathHash: -1233628518
-  m_Mesh: {fileID: 0}
-  m_InstanceId: -110934
-  m_LocalBounds:
-    m_Center: {x: -0.000000029802322, y: -0.021524046, z: 0}
-    m_Extent: {x: 0.07999995, y: 0.058475997, z: 0}
 --- !u!60 &6599149793714213468
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -175,3 +144,35 @@ PolygonCollider2D:
       - {x: 0.053075146, y: -0.021488734}
       - {x: 0.03987107, y: -0.008358708}
   m_UseDelaunayMesh: 0
+--- !u!114 &5169875600605965246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6207997072132040715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_ComponentVersion: 1
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_ApplyToSortingLayers: bd3618f000000000e7e8d1cf23496f0e735a8adb
+  m_ShapePath:
+  - {x: -0.087969534, y: -0.076037765, z: 0}
+  - {x: -0.085823685, y: -0.056816947, z: 0}
+  - {x: -0.04147793, y: -0.006049608, z: 0}
+  - {x: -0.006453553, y: -0.050955527, z: 0}
+  - {x: 0.03363169, y: -0.0021421101, z: 0}
+  - {x: 0.07938626, y: -0.07603776, z: 0}
+  m_ShapePathHash: -1562717852
+  m_Mesh: {fileID: 0}
+  m_InstanceId: 66908
+  m_LocalBounds:
+    m_Center: {x: -0.0042916387, y: -0.039089937, z: 0}
+    m_Extent: {x: 0.083677895, y: 0.036947828, z: 0}
