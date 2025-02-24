@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d32a85ac6286141f8ab6efb96a1501cc
+guid: 8bb08c45909e254488cb516c0035c00d
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -175,253 +175,106 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Run (32x32)_0
+      name: exclamation-7x8_0
       rect:
         serializedVersion: 2
-        x: 4
-        y: 3
-        width: 23
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b7543ee5b29715846851817917e5cc32
-      internalID: 143847275
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Run (32x32)_1
-      rect:
-        serializedVersion: 2
-        x: 36
-        y: 4
-        width: 23
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 693937005ca2f994e9be8005c7979de2
-      internalID: 302424177
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Run (32x32)_2
-      rect:
-        serializedVersion: 2
-        x: 68
-        y: 4
-        width: 23
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5c84d2f9cf8958d498c35d4d7b86b619
-      internalID: 511962791
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Run (32x32)_3
-      rect:
-        serializedVersion: 2
-        x: 100
-        y: 2
-        width: 23
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9070cc056970b3a4db4f2e358b37120f
-      internalID: 1712190026
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Run (32x32)_4
-      rect:
-        serializedVersion: 2
-        x: 131
+        x: 7
         y: 0
-        width: 25
-        height: 24
+        width: 7
+        height: 8
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 73fb6e343ef0c7c459185a8af4e967ed
-      internalID: -1157370698
+      spriteID: 590da11ab647e8f4194ddbdfbeca74aa
+      internalID: 676413484
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Run (32x32)_5
+      name: exclamation-7x8_1
       rect:
         serializedVersion: 2
-        x: 163
+        x: 14
         y: 0
-        width: 25
-        height: 24
+        width: 7
+        height: 8
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ab97c03ad806600479ee2a5b96510997
-      internalID: -1006899459
+      spriteID: 32199ac08c873544fa034c2e5ef8220a
+      internalID: -447939431
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Run (32x32)_6
+      name: exclamation-7x8_2
       rect:
         serializedVersion: 2
-        x: 196
-        y: 3
-        width: 24
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8b6a0396ef3f86d459259f572266771e
-      internalID: 1957605917
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Run (32x32)_7
-      rect:
-        serializedVersion: 2
-        x: 228
-        y: 4
-        width: 24
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 66877e9d40b753442a9773cd206a3c00
-      internalID: -705307774
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Run (32x32)_8
-      rect:
-        serializedVersion: 2
-        x: 260
-        y: 4
-        width: 24
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d682bc736f288af40a45a819a1a344d9
-      internalID: 1782185773
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Run (32x32)_9
-      rect:
-        serializedVersion: 2
-        x: 292
-        y: 2
-        width: 24
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b6ebe11c3ef7c8d42b55eec5bce67c10
-      internalID: 1620058269
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Run (32x32)_10
-      rect:
-        serializedVersion: 2
-        x: 323
+        x: 21
         y: 0
-        width: 25
-        height: 24
+        width: 7
+        height: 8
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3db65626d1f34274aa65eb50e57a5452
-      internalID: -25422410
+      spriteID: 76548ab954b4ccf40a1d659722e7af32
+      internalID: 1187282860
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Run (32x32)_11
+      name: exclamation-7x8_3
       rect:
         serializedVersion: 2
-        x: 355
+        x: 28
         y: 0
-        width: 25
-        height: 24
+        width: 7
+        height: 8
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e3d83f5741f31314991a34ffbe74cdd6
-      internalID: 1963194524
+      spriteID: 0a920eb47354f134da90ce63c7bc3c29
+      internalID: -463165390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: exclamation-7x8_4
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 0
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 214823a0b87a3db4180c70b9bac8ebfa
+      internalID: 250511191
       vertices: []
       indices: 
       edges: []
@@ -437,18 +290,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Run (32x32)_0: 143847275
-      Run (32x32)_1: 302424177
-      Run (32x32)_10: -25422410
-      Run (32x32)_11: 1963194524
-      Run (32x32)_2: 511962791
-      Run (32x32)_3: 1712190026
-      Run (32x32)_4: -1157370698
-      Run (32x32)_5: -1006899459
-      Run (32x32)_6: 1957605917
-      Run (32x32)_7: -705307774
-      Run (32x32)_8: 1782185773
-      Run (32x32)_9: 1620058269
+      exclamation-7x8_0: 676413484
+      exclamation-7x8_1: -447939431
+      exclamation-7x8_2: 1187282860
+      exclamation-7x8_3: -463165390
+      exclamation-7x8_4: 250511191
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
