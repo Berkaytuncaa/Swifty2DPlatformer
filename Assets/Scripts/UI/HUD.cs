@@ -12,6 +12,7 @@ public class HUD : MonoBehaviour
     private void Awake()
     {
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+        Cursor.visible = false;
     }
 
     private void Update()
@@ -29,6 +30,7 @@ public class HUD : MonoBehaviour
     public void Pause()
     {
         _isPaused = true;
+        Cursor.visible = true;
         audioManager.PlaySFX(audioManager.click);
         pauseMenu.SetActive(true);
         Time.timeScale = 0;
@@ -51,6 +53,7 @@ public class HUD : MonoBehaviour
     public void Resume()
     {
         _isPaused = false;
+        Cursor.visible = false;
         audioManager.PlaySFX(audioManager.click);
         pauseMenu.SetActive(false);
         Time.timeScale = 1;
