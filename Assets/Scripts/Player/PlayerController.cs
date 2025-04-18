@@ -6,6 +6,15 @@ using Cinemachine;
 
 public class PlayerController : MonoBehaviour
 {
+    #region Roll
+    private bool _canRoll = true;
+    private bool _isRolling = false;
+    private float _rollTime = 0.5f;
+    private float _rollSpeed = 10f;
+    private float _rollCooldown = 1f;
+
+    #endregion
+
     #region References
     private Rigidbody2D _rb;
     private BoxCollider2D _collider;
@@ -105,10 +114,16 @@ public class PlayerController : MonoBehaviour
         _anim.SetBool("isGrounded", IsGrounded());
         _anim.SetFloat("yVelocity", _rb.velocity.y);
         _anim.SetBool("isWallSliding", _isWallSliding);
+        _anim.SetBool("isRolling", _isRolling);
     }
 
     private void CheckInput()
     {
+        if (_isRolling)
+        {
+            return;
+        }
+
         _movementInputDirection = Input.GetAxisRaw("Horizontal");
 
         if (IsGrounded())
@@ -118,6 +133,12 @@ public class PlayerController : MonoBehaviour
         else
         {
             _coyoteTimeCounter -= Time.deltaTime;
+        }
+
+
+        if (Input.GetKeyDown(KeyCode.LeftShift) && _canRoll && !_isRolling && !_isWallSliding && IsGrounded())
+        {
+            StartCoroutine(Roll());
         }
 
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
@@ -148,6 +169,11 @@ public class PlayerController : MonoBehaviour
 
     private void ApplyMovement()
     {
+        if (_isRolling)
+        {
+            _rb.velocity = new Vector2(_rollSpeed * _facingDirection, _rb.velocity.y);
+            return;
+        }
         if (_isWallSliding && _rb.velocity.y < -wallSlidingSpeed && Input.GetAxisRaw("Vertical") == 0)
         {
             _rb.velocity = new Vector2(_rb.velocity.x, -wallSlidingSpeed);
@@ -168,6 +194,28 @@ public class PlayerController : MonoBehaviour
         transform.Rotate(0.0f, 180.0f, 0.0f);
 
         movementParticle.Play();
+    }
+
+    private IEnumerator Roll()
+    {
+        _canRoll = false;
+        _isRolling = true;
+
+        Vector2 originalSize = _collider.size;
+        Vector2 originalOffset = _collider.offset;
+
+        _collider.size = new Vector2(originalSize.x, originalSize.y / 2);
+        _collider.offset = new Vector2(originalOffset.x, originalOffset.y / 2);
+
+        _rb.velocity = new Vector2(_rollSpeed * _facingDirection, _rb.velocity.y);
+        yield return new WaitForSeconds(_rollTime);
+        _collider.size = originalSize;
+        _collider.offset = originalOffset;
+
+        _isRolling = false;
+
+        yield return new WaitForSeconds(_rollCooldown);
+        _canRoll = true;
     }
 
     private void CheckJump()
