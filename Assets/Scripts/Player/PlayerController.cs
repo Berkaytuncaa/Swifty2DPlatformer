@@ -11,8 +11,7 @@ public class PlayerController : MonoBehaviour
     private bool _isRolling = false;
     private float _rollTime = 0.5f;
     private float _rollSpeed = 10f;
-    private float _rollCooldown = 1f;
-
+    private float _rollCooldown = 0.5f;
     #endregion
 
     #region References

@@ -25,12 +25,24 @@ public class HUD : MonoBehaviour
         {
             Resume();
         }
+        else if(Input.GetKeyDown(KeyCode.R))
+        {
+            Restart();
+        }
+
+        if (_isPaused)
+        {
+            Cursor.visible = true;
+        }
+        else
+        {
+            Cursor.visible = false;
+        }
     }
 
     public void Pause()
     {
         _isPaused = true;
-        Cursor.visible = true;
         audioManager.PlaySFX(audioManager.click);
         pauseMenu.SetActive(true);
         Time.timeScale = 0;
@@ -53,7 +65,6 @@ public class HUD : MonoBehaviour
     public void Resume()
     {
         _isPaused = false;
-        Cursor.visible = false;
         audioManager.PlaySFX(audioManager.click);
         pauseMenu.SetActive(false);
         Time.timeScale = 1;
