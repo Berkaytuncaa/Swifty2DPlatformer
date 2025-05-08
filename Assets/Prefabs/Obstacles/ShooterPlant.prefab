@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   plantbulletPrefab: {fileID: 5604902490968305357, guid: aecb1b04150284971a3f2be647fdb854, type: 3}
-  spawnDelay: 1.03
+  spawnDelay: 2.5
   yOffset: 0.2
   xOffset: -0.3
   poisonParticle: {fileID: 0}
@@ -89,8 +89,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -808326937
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: -186635389, guid: c175f58bb8bba420095382518b8b9fa4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

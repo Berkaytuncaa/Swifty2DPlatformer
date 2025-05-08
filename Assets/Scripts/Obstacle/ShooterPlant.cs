@@ -10,29 +10,43 @@ public class ShooterPlant : MonoBehaviour
     [SerializeField] private float yOffset = 0.5f;
     [SerializeField] private float xOffset = 0.3f;
     [SerializeField] private ParticleSystem poisonParticle;
+    private Animator _animator;
     private Vector2 _spawnPoint;
+    private bool _canShoot = true;
 
     private void Start()
     {
+        _animator = GetComponent<Animator>();
         _spawnPoint = new Vector2(transform.position.x + xOffset, transform.position.y + yOffset);
-        StartCoroutine(SpawnPlantBullets());
     }
-
-    private IEnumerator SpawnPlantBullets()
+    private void Update()
     {
-        while (true)
+        if (_canShoot)
         {
-            GameObject plantBullet = Instantiate(plantbulletPrefab, _spawnPoint, Quaternion.identity);
-            yield return new WaitForSeconds(spawnDelay);
+            StartCoroutine(ShootRoutine());
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private IEnumerator ShootRoutine()
     {
-        if (!collision.CompareTag("PlantBullet"))
+        _canShoot = false;
+
+        _animator.SetTrigger("Shoot");
+
+        yield return new WaitForSeconds(0.5f);
+
+        _spawnPoint = new Vector2(transform.position.x + xOffset, transform.position.y + yOffset);
+
+        Instantiate(plantbulletPrefab, _spawnPoint, Quaternion.identity);
+
+        if (poisonParticle != null)
         {
             poisonParticle.Play();
-            Destroy(collision.gameObject);
         }
+
+        yield return new WaitForSeconds(spawnDelay);
+
+        _canShoot = true;
     }
+
 }
