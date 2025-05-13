@@ -12,7 +12,7 @@ public class ShooterPlant : MonoBehaviour
     [SerializeField] private ParticleSystem poisonParticle;
     private Animator _animator;
     private Vector2 _spawnPoint;
-    private bool _canShoot = true;
+    private bool _canShoot = false;
 
     private void Start()
     {
@@ -45,8 +45,14 @@ public class ShooterPlant : MonoBehaviour
         }
 
         yield return new WaitForSeconds(spawnDelay);
-
-        _canShoot = true;
     }
 
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            _canShoot = true;
+            _animator.SetBool("isPlayerInRange", true);
+        }
+    }
 }
