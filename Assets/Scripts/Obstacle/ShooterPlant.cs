@@ -10,49 +10,50 @@ public class ShooterPlant : MonoBehaviour
     [SerializeField] private float yOffset = 0.5f;
     [SerializeField] private float xOffset = 0.3f;
     [SerializeField] private ParticleSystem poisonParticle;
+
     private Animator _animator;
     private Vector2 _spawnPoint;
-    private bool _canShoot = false;
+    private Coroutine _shootingCoroutine;
 
     private void Start()
     {
         _animator = GetComponent<Animator>();
         _spawnPoint = new Vector2(transform.position.x + xOffset, transform.position.y + yOffset);
     }
-    private void Update()
-    {
-        if (_canShoot)
-        {
-            StartCoroutine(ShootRoutine());
-        }
-    }
 
     private IEnumerator ShootRoutine()
     {
-        _canShoot = false;
-
-        _animator.SetTrigger("Shoot");
-
-        yield return new WaitForSeconds(0.5f);
-
-        _spawnPoint = new Vector2(transform.position.x + xOffset, transform.position.y + yOffset);
-
-        Instantiate(plantbulletPrefab, _spawnPoint, Quaternion.identity);
-
-        if (poisonParticle != null)
+        while (true)
         {
-            poisonParticle.Play();
-        }
+            _animator.SetTrigger("Shoot");
 
-        yield return new WaitForSeconds(spawnDelay);
+            yield return new WaitForSeconds(0.5f);
+
+            Instantiate(plantbulletPrefab, _spawnPoint, Quaternion.identity);
+
+            if (poisonParticle != null)
+            {
+                poisonParticle.Play();
+            }
+
+            yield return new WaitForSeconds(spawnDelay);
+        }
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (other.CompareTag("Player"))
+        if (collision.CompareTag("Player") && _shootingCoroutine == null)
         {
-            _canShoot = true;
-            _animator.SetBool("isPlayerInRange", true);
+            _shootingCoroutine = StartCoroutine(ShootRoutine());
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player") && _shootingCoroutine != null)
+        {
+            StopCoroutine(_shootingCoroutine);
+            _shootingCoroutine = null;
         }
     }
 }
