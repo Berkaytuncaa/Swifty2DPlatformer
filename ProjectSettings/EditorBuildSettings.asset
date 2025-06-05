@@ -15,6 +15,6 @@ EditorBuildSettings:
     path: Assets/Scenes/SurfaceMorningChapters/Chapter2.unity
     guid: aa678e28960174f5d91a24a8de25a2a2
   - enabled: 1
-    path: Assets/Scenes/SurfaceMorningChapters/Chapter3.unity
+    path: Assets/Scenes/SurfaceMorningChapters/Chapter5.unity
     guid: 060721216ee544076a8252f3b1b6ee6d
   m_configObjects: {}
