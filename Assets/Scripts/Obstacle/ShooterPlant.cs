@@ -14,6 +14,8 @@ public class ShooterPlant : MonoBehaviour
     private Animator _animator;
     private Vector2 _spawnPoint;
     private Coroutine _shootingCoroutine;
+    private Coroutine _delayedStopCoroutine;
+    private bool _playerInRange = false;
 
     private void Start()
     {
@@ -42,18 +44,47 @@ public class ShooterPlant : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player") && _shootingCoroutine == null)
+        if (collision.CompareTag("Player"))
         {
-            _shootingCoroutine = StartCoroutine(ShootRoutine());
+            _playerInRange = true;
+
+            // Cancel delayed stop if player comes back before 2s ends
+            if (_delayedStopCoroutine != null)
+            {
+                StopCoroutine(_delayedStopCoroutine);
+                _delayedStopCoroutine = null;
+            }
+
+            if (_shootingCoroutine == null)
+            {
+                _shootingCoroutine = StartCoroutine(ShootRoutine());
+            }
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player") && _shootingCoroutine != null)
+        if (collision.CompareTag("Player"))
+        {
+            _playerInRange = false;
+
+            if (_delayedStopCoroutine == null)
+            {
+                _delayedStopCoroutine = StartCoroutine(DelayedStopShooting());
+            }
+        }
+    }
+
+    private IEnumerator DelayedStopShooting()
+    {
+        yield return new WaitForSeconds(2f);
+
+        if (!_playerInRange && _shootingCoroutine != null)
         {
             StopCoroutine(_shootingCoroutine);
             _shootingCoroutine = null;
         }
+
+        _delayedStopCoroutine = null;
     }
 }
