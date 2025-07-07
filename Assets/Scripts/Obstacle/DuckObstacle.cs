@@ -38,29 +38,24 @@ public class DuckObstacle : MonoBehaviour
         if (_isGrounded)
         {
             StartCoroutine(WaitBetweenJumps());
-            JumpMotion();
         }
-        else
-        {
-            // fall until isGrounded;
-        }
+    }
+
+    private IEnumerator WaitBetweenJumps()
+    {
+        yield return new WaitForSeconds(timeBetweenJumps);
+        JumpMotion();
     }
 
     private void JumpMotion()
     {
         StartCoroutine(PrepareForJump());
         rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-        
     }
 
     private IEnumerator PrepareForJump()
     {
         yield return new WaitForSeconds(prepareDelay);
-    }
-
-    private IEnumerator WaitBetweenJumps()
-    {
-        yield return new WaitForSeconds(timeBetweenJumps);
     }
 
     private void OnDrawGizmosSelected()
