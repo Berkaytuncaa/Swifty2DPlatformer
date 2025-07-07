@@ -10,6 +10,7 @@ TagManager:
   - RockHead
   - ShooterPlant
   - Apples
+  - DuckObstacle
   layers:
   - Default
   - TransparentFX

@@ -335,6 +335,15 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("DuckObstacle"))
+        {
+            deathParticle.Play();
+            Die();
+        }
+    }
+
     private void OnDrawGizmos()
     {
         if (_collider == null) return;

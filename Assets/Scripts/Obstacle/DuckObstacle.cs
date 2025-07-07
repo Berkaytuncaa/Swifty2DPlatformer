@@ -17,7 +17,9 @@ public class DuckObstacle : MonoBehaviour
     private Rigidbody2D rb;
     private Animator animator;
 
-    private bool _isGrounded => Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
+    private bool IsGrounded => Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
+
+    private bool _isJumpingSequenceActive = false;
 
     private void Awake()
     {
@@ -27,35 +29,35 @@ public class DuckObstacle : MonoBehaviour
 
     private void Start()
     {
-        JumpMotion();
+        StartCoroutine(JumpSequence());
     }
 
     private void Update()
     {
         animator.SetFloat("yVelocity", rb.velocity.y);
-        animator.SetBool("isGrounded", _isGrounded);
+        animator.SetBool("isGrounded", IsGrounded);
+    }
 
-        if (_isGrounded)
+    private IEnumerator JumpSequence()
+    {
+        if (_isJumpingSequenceActive) yield break;
+        _isJumpingSequenceActive = true;
+
+        while (true)
         {
-            StartCoroutine(WaitBetweenJumps());
+            yield return new WaitUntil(() => IsGrounded);
+
+            yield return new WaitForSeconds(timeBetweenJumps);
+
+            yield return new WaitForSeconds(prepareDelay); // Wait for the preparation
+
+            // 4. Perform the actual jump (apply force immediately after preparation)
+            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            // animator.SetTrigger("Jump"); // Example: Trigger jump animation
+
+            // The obstacle will naturally fall due to gravity after this
+            // The loop will then restart and wait until it's grounded again
         }
-    }
-
-    private IEnumerator WaitBetweenJumps()
-    {
-        yield return new WaitForSeconds(timeBetweenJumps);
-        JumpMotion();
-    }
-
-    private void JumpMotion()
-    {
-        StartCoroutine(PrepareForJump());
-        rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-    }
-
-    private IEnumerator PrepareForJump()
-    {
-        yield return new WaitForSeconds(prepareDelay);
     }
 
     private void OnDrawGizmosSelected()
