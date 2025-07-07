@@ -49,14 +49,9 @@ public class DuckObstacle : MonoBehaviour
 
             yield return new WaitForSeconds(timeBetweenJumps);
 
-            yield return new WaitForSeconds(prepareDelay); // Wait for the preparation
+            yield return new WaitForSeconds(prepareDelay);
 
-            // 4. Perform the actual jump (apply force immediately after preparation)
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-            // animator.SetTrigger("Jump"); // Example: Trigger jump animation
-
-            // The obstacle will naturally fall due to gravity after this
-            // The loop will then restart and wait until it's grounded again
         }
     }
 
