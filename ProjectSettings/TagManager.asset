@@ -60,6 +60,9 @@ TagManager:
   - name: Platforms
     uniqueID: 242174243
     locked: 0
+  - name: Apples
+    uniqueID: 1849639649
+    locked: 0
   - name: Player
     uniqueID: 3683277427
     locked: 0
