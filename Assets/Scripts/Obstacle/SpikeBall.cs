@@ -32,8 +32,10 @@ public class SpikeBall : MonoBehaviour
         if (!collision.CompareTag("RockHead"))
         {
             //audioManager.PlaySFX(audioManager.spikeBall);
-
-            Destroy(gameObject);
+            if (!collision.CompareTag("Apples"))
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }
