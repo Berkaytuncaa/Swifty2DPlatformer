@@ -178,10 +178,10 @@ TextureImporter:
       name: Idle (44x30)_0
       rect:
         serializedVersion: 2
-        x: 9
+        x: 0
         y: 0
-        width: 29
-        height: 27
+        width: 44
+        height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -199,10 +199,10 @@ TextureImporter:
       name: Idle (44x30)_1
       rect:
         serializedVersion: 2
-        x: 53
+        x: 44
         y: 0
-        width: 29
-        height: 26
+        width: 44
+        height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -220,10 +220,10 @@ TextureImporter:
       name: Idle (44x30)_2
       rect:
         serializedVersion: 2
-        x: 96
+        x: 88
         y: 0
-        width: 31
-        height: 24
+        width: 44
+        height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -241,10 +241,10 @@ TextureImporter:
       name: Idle (44x30)_3
       rect:
         serializedVersion: 2
-        x: 140
+        x: 132
         y: 0
-        width: 31
-        height: 24
+        width: 44
+        height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -262,10 +262,10 @@ TextureImporter:
       name: Idle (44x30)_4
       rect:
         serializedVersion: 2
-        x: 184
+        x: 176
         y: 0
-        width: 31
-        height: 24
+        width: 44
+        height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -283,10 +283,10 @@ TextureImporter:
       name: Idle (44x30)_5
       rect:
         serializedVersion: 2
-        x: 229
+        x: 220
         y: 0
-        width: 29
-        height: 26
+        width: 44
+        height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -304,10 +304,10 @@ TextureImporter:
       name: Idle (44x30)_6
       rect:
         serializedVersion: 2
-        x: 273
+        x: 264
         y: 0
-        width: 29
-        height: 28
+        width: 44
+        height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -325,9 +325,9 @@ TextureImporter:
       name: Idle (44x30)_7
       rect:
         serializedVersion: 2
-        x: 318
+        x: 308
         y: 0
-        width: 27
+        width: 44
         height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -346,9 +346,9 @@ TextureImporter:
       name: Idle (44x30)_8
       rect:
         serializedVersion: 2
-        x: 362
+        x: 352
         y: 0
-        width: 27
+        width: 44
         height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -367,9 +367,9 @@ TextureImporter:
       name: Idle (44x30)_9
       rect:
         serializedVersion: 2
-        x: 406
+        x: 396
         y: 0
-        width: 27
+        width: 44
         height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
