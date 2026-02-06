@@ -5,7 +5,12 @@ using UnityEngine;
 public class Tramboline : MonoBehaviour
 {
     [SerializeField] private float _jumpForce;
+    private Animator _animator;
 
+    private void Start()
+    {
+        _animator = GetComponent<Animator>();
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
@@ -13,6 +18,7 @@ public class Tramboline : MonoBehaviour
             Rigidbody2D playerRB = collision.gameObject.GetComponent<Rigidbody2D>();
             if (playerRB != null)
             {
+                _animator.SetTrigger("Jump");
                 playerRB.velocity = new Vector2(playerRB.velocity.x, 0);
                 playerRB.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
             }
