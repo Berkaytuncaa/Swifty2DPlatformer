@@ -245,6 +245,7 @@ GameObject:
   - component: {fileID: 5340644758505050596}
   - component: {fileID: 4535435020217147370}
   - component: {fileID: 2671103950067924564}
+  - component: {fileID: 5180117989554643073}
   m_Layer: 6
   m_Name: MovingPlatformBase
   m_TagString: Untagged
@@ -357,6 +358,36 @@ MonoBehaviour:
   pointA: {fileID: 6055458541486748172}
   pointB: {fileID: 8217191829863527537}
   speed: 3
+--- !u!114 &5180117989554643073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5400800446882578276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_ComponentVersion: 1
+  m_HasRenderer: 0
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_ApplyToSortingLayers: bd3618f0000000002919ec8de7e8d1cf23496f0ee1423f6e735a8adb
+  m_ShapePath:
+  - {x: -0.49126792, y: 0.19300652, z: 0}
+  - {x: -0.49126792, y: 0.5, z: 0}
+  - {x: 2.4854736, y: 0.5, z: 0}
+  - {x: 2.4854736, y: 0.19300652, z: 0}
+  m_ShapePathHash: 0
+  m_Mesh: {fileID: 0}
+  m_InstanceId: -436522
+  m_LocalBounds:
+    m_Center: {x: 0.99710286, y: 0.34650326, z: 0}
+    m_Extent: {x: 1.4883708, y: 0.15349674, z: 0}
 --- !u!1 &6220109871269141600
 GameObject:
   m_ObjectHideFlags: 0

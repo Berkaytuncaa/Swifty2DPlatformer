@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3145694190770780145}
   - component: {fileID: 6209506919815124202}
   - component: {fileID: 8960746799310098105}
+  - component: {fileID: 2372235837510127962}
   m_Layer: 0
   m_Name: Trampoline
   m_TagString: Untagged
@@ -166,3 +167,37 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.71836853, y: 0.073901296}
   m_EdgeRadius: 0
+--- !u!114 &2372235837510127962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7614078198495090060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_ComponentVersion: 1
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_ApplyToSortingLayers: bd3618f0000000002919ec8de7e8d1cf23496f0ee1423f6e735a8adb
+  m_ShapePath:
+  - {x: -0.066751, y: -0.2605865, z: 0}
+  - {x: -0.37613344, y: -0.2530632, z: 0}
+  - {x: -0.36827326, y: -0.087086916, z: 0}
+  - {x: 0.34058237, y: -0.08862519, z: 0}
+  - {x: 0.34228897, y: -0.24690962, z: 0}
+  - {x: 0.040598392, y: -0.2575097, z: 0}
+  - {x: 0.102302074, y: -0.43613017, z: 0}
+  - {x: -0.14999199, y: -0.43613017, z: 0}
+  m_ShapePathHash: -1626872747
+  m_Mesh: {fileID: 0}
+  m_InstanceId: -437842
+  m_LocalBounds:
+    m_Center: {x: -0.016922235, y: -0.26160854, z: 0}
+    m_Extent: {x: 0.3592112, y: 0.17452163, z: 0}
