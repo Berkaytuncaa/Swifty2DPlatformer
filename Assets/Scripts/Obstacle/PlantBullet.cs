@@ -7,6 +7,7 @@ public class PlantBullet : MonoBehaviour
     private Rigidbody2D _rb;
     [SerializeField] private float speed;
     [SerializeField] private bool moveRight;
+    [SerializeField] private bool moveDown;
 
     void Start()
     {
@@ -14,6 +15,10 @@ public class PlantBullet : MonoBehaviour
         if (moveRight)
         {
             _rb.velocity = Vector2.right * speed;
+        }
+        else if (moveDown)
+        {
+            _rb.velocity = Vector2.down * speed;
         }
         else
         {

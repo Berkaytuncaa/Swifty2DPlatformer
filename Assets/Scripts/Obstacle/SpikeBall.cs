@@ -7,6 +7,7 @@ public class SpikeBall : MonoBehaviour
     private Rigidbody2D _rb;
     [SerializeField] private float speed;
     [SerializeField] private bool moveRight;
+    [SerializeField] private bool moveDown;
     private AudioManager audioManager;
 
     private void Awake()
@@ -21,10 +22,14 @@ public class SpikeBall : MonoBehaviour
         {
             _rb.velocity = Vector2.right * speed;
         }
-        else
+        else if (moveDown)
         {
-            _rb.velocity = Vector2.left * speed;
+            _rb.velocity = Vector2.down * speed;
         }
+        else
+    {
+        _rb.velocity = Vector2.left * speed;
+    }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
