@@ -148,16 +148,25 @@ MonoBehaviour:
   m_SelfShadows: 0
   m_ApplyToSortingLayers: bd3618f000000000e7e8d1cf23496f0e735a8adb
   m_ShapePath:
-  - {x: -0.12838936, y: -0.1421833, z: 0}
-  - {x: -0.14402199, y: 0.1421833, z: 0}
-  - {x: 0.14662552, y: 0.14999962, z: 0}
-  - {x: 0.13359833, y: -0.15781593, z: 0}
-  m_ShapePathHash: 2120886293
+  - {x: -0.08237318, y: -0.123144194, z: 0}
+  - {x: -0.06236382, y: -0.036246657, z: 0}
+  - {x: -0.23135237, y: 0.010562222, z: 0}
+  - {x: -0.16147602, y: 0.09854568, z: 0}
+  - {x: -0.036975734, y: 0.053403817, z: 0}
+  - {x: -0.029042436, y: 0.12004785, z: 0}
+  - {x: 0.011420058, y: 0.101799615, z: 0}
+  - {x: 0.048707455, y: 0.1002127, z: 0}
+  - {x: 0.09347039, y: 0.12302459, z: 0}
+  - {x: 0.08996341, y: 0.07482462, z: 0}
+  - {x: 0.22800967, y: 0.023256265, z: 0}
+  - {x: 0.054261655, y: -0.057668727, z: 0}
+  - {x: 0.003485488, y: -0.12290768, z: 0}
+  m_ShapePathHash: -1901164760
   m_Mesh: {fileID: 0}
-  m_InstanceId: 101224
+  m_InstanceId: 45646
   m_LocalBounds:
-    m_Center: {x: 0.0013017654, y: -0.0039081573, z: 0}
-    m_Extent: {x: 0.14532375, y: 0.15390778, z: 0}
+    m_Center: {x: -0.001671359, y: -0.00005979836, z: 0}
+    m_Extent: {x: 0.22968102, y: 0.123084396, z: 0}
 --- !u!61 &6747489441575207358
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -190,7 +199,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.004925728, y: 0.0073625594}
+  m_Offset: {x: -0.0049256682, y: 0.0031044781}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -201,7 +210,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.3589077, y: 0.2852749}
+  m_Size: {x: 0.35890758, y: 0.25594586}
   m_EdgeRadius: 0
 --- !u!50 &3751492247614327785
 Rigidbody2D:
