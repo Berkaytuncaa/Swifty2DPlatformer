@@ -312,7 +312,10 @@ public class PlayerController : MonoBehaviour
         CameraShakeManager.instance.CameraShake(_impulseSource);
         _sceneController.SetDeathScreen();
 
-        Chapter33Elevator.Instance.OnPlayerDied();
+        if (Chapter33Elevator.Instance != null)
+        {
+            Chapter33Elevator.Instance.OnPlayerDied();
+        }
 
         StartCoroutine(Respawn(1.3f));
     }
