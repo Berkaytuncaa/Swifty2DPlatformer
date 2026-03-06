@@ -42,6 +42,18 @@ public class Torch : MonoBehaviour
         }
     }
 
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player") && isBurning)
+        {
+            PlayerController player = collision.gameObject.GetComponent<PlayerController>();
+
+            player.Die();
+            isBurning = false;
+            torchLight.SetActive(false);
+        }
+    }
+
     IEnumerator StartBurningAfterDelay()
     {
         // SFX will player here

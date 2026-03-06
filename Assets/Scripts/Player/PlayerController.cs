@@ -161,9 +161,13 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyUp(KeyCode.Space) || Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.UpArrow))
         {
-            _rb.velocity = new Vector2(_rb.velocity.x, _rb.velocity.y * _variableJumpHeight);
+            if (_rb.velocity.y > 0) // Only cut the jump if still moving upward
+            {
+                _rb.velocity = new Vector2(_rb.velocity.x, _rb.velocity.y * _variableJumpHeight);
+            }
             _coyoteTimeCounter = 0f;
         }
+        
     }
 
     private void ApplyMovement()
@@ -317,9 +321,10 @@ public class PlayerController : MonoBehaviour
             Chapter33Elevator.Instance.OnPlayerDied();
         }
 
-        if (DestroyableBlock.Instance != null)
+        DestroyableManager destroyableManager = FindObjectOfType<DestroyableManager>();
+        if (destroyableManager != null)
         {
-            DestroyableBlock.Instance.OnPlayerDied();
+            destroyableManager.OnPlayerDied();
         }
 
         StartCoroutine(Respawn(1.3f));
