@@ -321,12 +321,6 @@ public class PlayerController : MonoBehaviour
             Chapter33Elevator.Instance.OnPlayerDied();
         }
 
-        DestroyableManager destroyableManager = FindObjectOfType<DestroyableManager>();
-        if (destroyableManager != null)
-        {
-            destroyableManager.OnPlayerDied();
-        }
-
         StartCoroutine(Respawn(1.3f));
     }
 
@@ -336,6 +330,13 @@ public class PlayerController : MonoBehaviour
         _rb.simulated = false;
         transform.localScale = new Vector3(0, 0, 0);
         yield return new WaitForSeconds(duration);
+        
+        DestroyableManager destroyableManager = FindObjectOfType<DestroyableManager>();
+        if (destroyableManager != null)
+        {
+            destroyableManager.OnPlayerDied();
+        }
+
         transform.position = _startPos;
         transform.localScale = new Vector3(1, 1, 1);
         _rb.simulated = true;
