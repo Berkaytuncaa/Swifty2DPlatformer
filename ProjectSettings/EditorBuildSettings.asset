@@ -15,6 +15,108 @@ EditorBuildSettings:
     path: Assets/Scenes/SurfaceMorningChapters/Chapter2.unity
     guid: aa678e28960174f5d91a24a8de25a2a2
   - enabled: 1
+    path: Assets/Scenes/SurfaceMorningChapters/Chapter3.unity
+    guid: 175a3b9a023d55245ad546e1227ac362
+  - enabled: 1
+    path: Assets/Scenes/SurfaceMorningChapters/Chapter4.unity
+    guid: de5094b98a3f33446bb4789bb46e2451
+  - enabled: 1
     path: Assets/Scenes/SurfaceMorningChapters/Chapter5.unity
     guid: 060721216ee544076a8252f3b1b6ee6d
+  - enabled: 1
+    path: Assets/Scenes/SurfaceMorningChapters/Chapter6.unity
+    guid: cdc437bc40173c248ab81b51500e6414
+  - enabled: 1
+    path: Assets/Scenes/SurfaceMorningChapters/Chapter7.unity
+    guid: 0bc77697e22314d4690260a00dbdf7ed
+  - enabled: 1
+    path: Assets/Scenes/SurfaceMorningChapters/Chapter8.unity
+    guid: 4199c959ecc33491daa7f4959247cf11
+  - enabled: 1
+    path: Assets/Scenes/SurfaceMorningChapters/Chapter9.unity
+    guid: c056b39afb848d04187bb5aff32551e3
+  - enabled: 1
+    path: Assets/Scenes/SurfaceMorningChapters/Chapter10.unity
+    guid: 90a748294bab0da4ea507c0b25c43ec1
+  - enabled: 1
+    path: Assets/Scenes/SurfaceMorningChapters/Chapter11.unity
+    guid: b02fa577aa86b8747ac50c617d2e8d66
+  - enabled: 1
+    path: Assets/Scenes/ChipyScenes/DEMOChapter200.unity
+    guid: c6b3094fb348740f48b7f60195e5f0db
+  - enabled: 1
+    path: Assets/Scenes/SurfaceEveningChapters/Chapter12.unity
+    guid: ada2de755238ab04eb4e23b80e12c78b
+  - enabled: 1
+    path: Assets/Scenes/SurfaceEveningChapters/Chapter13.unity
+    guid: 8c4ba685257f82143b21b82b39d187ac
+  - enabled: 1
+    path: Assets/Scenes/SurfaceEveningChapters/Chapter14.unity
+    guid: 4edf852d0674f8049998acc747d0fb45
+  - enabled: 1
+    path: Assets/Scenes/SurfaceEveningChapters/Chapter15.unity
+    guid: e15c986ddac5fcf4fb6026813fe54b80
+  - enabled: 1
+    path: Assets/Scenes/SurfaceEveningChapters/Chapter16.unity
+    guid: 2c0ba7be6b558024881babb84415aa12
+  - enabled: 1
+    path: Assets/Scenes/SurfaceEveningChapters/Chapter17.unity
+    guid: 3c7cad03d1e05924cab6a11058c03013
+  - enabled: 1
+    path: Assets/Scenes/SurfaceEveningChapters/Chapter18.unity
+    guid: 70bb451cc55509144b2a2e3e8891df77
+  - enabled: 1
+    path: Assets/Scenes/SurfaceEveningChapters/Chapter19.unity
+    guid: 491f12da91c3c134eaf915231a4f5144
+  - enabled: 1
+    path: Assets/Scenes/SurfaceEveningChapters/Chapter20.unity
+    guid: 61c0492242cd9d9489beb06fcb2c699c
+  - enabled: 1
+    path: Assets/Scenes/SurfaceEveningChapters/Chapter21.unity
+    guid: 4ea1986f1037d5c499c2fbce7175e5ee
+  - enabled: 1
+    path: Assets/Scenes/SurfaceEveningChapters/Chapter22.unity
+    guid: 49fe6388b2d0ae240bb2c107896fd758
+  - enabled: 1
+    path: Assets/Scenes/StoneDungeonChapters/Chapter23.unity
+    guid: 2a5517373cce8fd4abfbc0c98addee39
+  - enabled: 1
+    path: Assets/Scenes/StoneDungeonChapters/Chapter24.unity
+    guid: d9c525dcf9903be40b837a472550032f
+  - enabled: 1
+    path: Assets/Scenes/StoneDungeonChapters/Chapter25.unity
+    guid: 274731e16691b8f4aa9026b18afbef36
+  - enabled: 1
+    path: Assets/Scenes/StoneDungeonChapters/Chapter26.unity
+    guid: 1cede7a56b89db9488df4196decc3a1e
+  - enabled: 1
+    path: Assets/Scenes/StoneDungeonChapters/Chapter27.unity
+    guid: 231dafe190b269b4e8b8a8754f580d67
+  - enabled: 1
+    path: Assets/Scenes/StoneDungeonChapters/Chapter28.unity
+    guid: 5c620d5e28177224bbb39d63433b5b2c
+  - enabled: 1
+    path: Assets/Scenes/StoneDungeonChapters/Chapter29.unity
+    guid: a1787268630112f4eb000a86b6eee187
+  - enabled: 1
+    path: Assets/Scenes/StoneDungeonChapters/Chapter30.unity
+    guid: 63272572442ccba4ca199fd84f0c9fc0
+  - enabled: 1
+    path: Assets/Scenes/StoneDungeonChapters/Chapter31.unity
+    guid: 6302bac77ad9c044092e4bfbd2e8645c
+  - enabled: 1
+    path: Assets/Scenes/StoneDungeonChapters/Chapter32.unity
+    guid: 25e1f78fd53f1c9499c8e5456aa106c4
+  - enabled: 1
+    path: Assets/Scenes/StoneDungeonChapters/Chapter33.unity
+    guid: 475cbfbe73ed7a4418ce78633804050a
+  - enabled: 1
+    path: Assets/Scenes/WoodenDungeonChapters/Chapter34.unity
+    guid: d0dda2b2164654056a6714c93c894093
+  - enabled: 1
+    path: Assets/Scenes/WoodenDungeonChapters/Chapter35.unity
+    guid: 8091fa4ef13b6416e8146258c29f63d0
+  - enabled: 1
+    path: Assets/Scenes/WoodenDungeonChapters/Chapter36.unity
+    guid: 9213edc1f2d22524897536caa3936167
   m_configObjects: {}
