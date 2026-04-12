@@ -125,4 +125,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/WoodenDungeonChapters/Chapter38.unity
     guid: ae0352c5f7b4c25439c4eaa4857d2550
+  - enabled: 1
+    path: Assets/Scenes/WoodenDungeonChapters/Chapter39.unity
+    guid: fb1fd274e11471f4283523a83978e5cb
   m_configObjects: {}
