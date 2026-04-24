@@ -321,6 +321,11 @@ public class PlayerController : MonoBehaviour
             Chapter33Elevator.Instance.OnPlayerDied();
         }
 
+        if (AngrySkullBoss.Instance != null)
+        {
+            AngrySkullBoss.Instance.OnPlayerDied();
+        }
+
         StartCoroutine(Respawn(1.3f));
     }
 
