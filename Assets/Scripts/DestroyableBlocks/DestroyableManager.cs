@@ -4,21 +4,25 @@ using UnityEngine;
 
 public class DestroyableManager : MonoBehaviour
 {
-    private List<DestroyableBlock> allBlocksIncludingInactive = new List<DestroyableBlock>();
+    // Serialized so can assign blocks in the Inspector,
+    // avoiding expensive FindObjectsOfType at runtime
+    [SerializeField] private List<DestroyableBlock> _allBlocks = new List<DestroyableBlock>();
 
     void Start()
     {
-        // FindObjectsOfType with true flag includes inactive objects
-        DestroyableBlock[] blocks = FindObjectsOfType<DestroyableBlock>(true);
-        allBlocksIncludingInactive.AddRange(blocks);
+        // Fallback: auto-find if not manually assigned in Inspector
+        if (_allBlocks.Count == 0)
+        {
+            DestroyableBlock[] found = FindObjectsOfType<DestroyableBlock>(true);
+            _allBlocks.AddRange(found);
+        }
     }
 
     public void OnPlayerDied()
     {
-        // Reactivate ALL blocks, including currently inactive ones
-        foreach (DestroyableBlock block in allBlocksIncludingInactive)
+        foreach (DestroyableBlock block in _allBlocks)
         {
-            block.gameObject.SetActive(true);
+            block.ResetBlock(); // Uses the clean reset method, not raw SetActive
         }
     }
 }

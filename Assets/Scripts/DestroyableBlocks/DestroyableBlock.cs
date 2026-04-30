@@ -4,61 +4,55 @@ using UnityEngine;
 
 public class DestroyableBlock : MonoBehaviour
 {
-    public static DestroyableBlock Instance;
-
-    // Static list that holds ALL block instances
-    public static List<DestroyableBlock> AllBlocks = new List<DestroyableBlock>();
-
     [SerializeField] private GameObject _destroyedPartA;
     [SerializeField] private GameObject _destroyedPartB;
     [SerializeField] private float _partLifetime = 2f;
-    void OnEnable()
+
+    private bool _isBroken = false; // Guard flag
+
+    // Called by manager on reset, cleanly restores state
+    public void ResetBlock()
     {
-        AllBlocks.Add(this);
+        _isBroken = false;
+        gameObject.SetActive(true);
     }
 
-    void OnDisable()
+    private void BreakBlock()
     {
-        // Remove from list when disabled so list stays clean
-        AllBlocks.Remove(this);
-        SpawnDestroyedParts();
+        if (_isBroken) return; // Prevent double-trigger
+        _isBroken = true;
+        
+        StartCoroutine(DeactivateAfterDelay());
     }
+
     private void SpawnDestroyedParts()
     {
-        if (_destroyedPartA != null)
-        {
-            GameObject partA = Instantiate(_destroyedPartA, transform.position, transform.rotation);
-            Rigidbody2D rbA = partA.GetComponent<Rigidbody2D>();
-            if (rbA != null)
-                rbA.AddForce(new Vector2(Random.Range(-3f, 3f), Random.Range(2f, 5f)), ForceMode2D.Impulse);
-            Destroy(partA, _partLifetime);
-        }
-
-        if (_destroyedPartB != null)
-        {
-            GameObject partB = Instantiate(_destroyedPartB, transform.position, transform.rotation);
-            Rigidbody2D rbB = partB.GetComponent<Rigidbody2D>();
-            if (rbB != null)
-                rbB.AddForce(new Vector2(Random.Range(-3f, 3f), Random.Range(2f, 5f)), ForceMode2D.Impulse);
-            Destroy(partB, _partLifetime);
-        }
+        SpawnPart(_destroyedPartA);
+        SpawnPart(_destroyedPartB);
     }
-    void OnDestroy()
+
+    private void SpawnPart(GameObject prefab)
     {
-        AllBlocks.Remove(this);
+        if (prefab == null) return;
+
+        GameObject part = Instantiate(prefab, transform.position, transform.rotation);
+        Rigidbody2D rb = part.GetComponent<Rigidbody2D>();
+        if (rb != null)
+            rb.AddForce(new Vector2(Random.Range(-3f, 3f), Random.Range(2f, 5f)), ForceMode2D.Impulse);
+
+        Destroy(part, _partLifetime);
     }
 
-    private IEnumerator DestroyTheBlock()
+    private IEnumerator DeactivateAfterDelay()
     {
         yield return new WaitForSeconds(0.5f);
+        SpawnDestroyedParts();
         gameObject.SetActive(false);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
-        {
-            StartCoroutine(DestroyTheBlock());
-        }
+            BreakBlock();
     }
 }

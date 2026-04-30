@@ -141,7 +141,7 @@ Transform:
   m_GameObject: {fileID: 5471430895303224924}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 1, w: 0}
-  m_LocalPosition: {x: -18.59263, y: -2, z: 0.1347084}
+  m_LocalPosition: {x: -19.82, y: -2, z: 0.1347084}
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -172,7 +172,7 @@ Transform:
   m_GameObject: {fileID: 5908803832153053781}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 1, w: 0}
-  m_LocalPosition: {x: -23.12563, y: -2, z: 0.1347084}
+  m_LocalPosition: {x: -22.702, y: -2, z: 0.1347084}
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -190,7 +190,7 @@ GameObject:
   - component: {fileID: 7937009759001456850}
   - component: {fileID: 6358104459833667161}
   - component: {fileID: 914315186322046005}
-  - component: {fileID: 7623035910307744003}
+  - component: {fileID: 6813337007047794531}
   m_Layer: 0
   m_Name: Slime
   m_TagString: Obstacle
@@ -228,7 +228,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointA: {fileID: 7486583795672282316}
   pointB: {fileID: 4386113684166972395}
-  speed: 3
+  speed: 2
 --- !u!212 &6358104459833667161
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -302,8 +302,8 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!61 &7623035910307744003
-BoxCollider2D:
+--- !u!60 &6813337007047794531
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -334,7 +334,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0006551966, y: -0.0078597665}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -344,6 +344,14 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.37581193, y: 0.28428048}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.05958946, y: 0.10388863}
+      - {x: -0.07266684, y: 0.103751056}
+      - {x: -0.156904, y: 0.0065763057}
+      - {x: -0.19288139, y: -0.15}
+      - {x: 0.1928814, y: -0.14999998}
+      - {x: 0.18032773, y: -0.118259676}
+      - {x: 0.16972883, y: -0.08292612}
+      - {x: 0.14456496, y: 0.034135386}
+  m_UseDelaunayMesh: 0
